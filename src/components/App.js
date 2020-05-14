@@ -1,10 +1,10 @@
 import React from 'react';
-import NumberSelector from './NumberSelector';
+import ColourCard from './ColourCard';
 
 const App = () => {
     return (
         <div className="container">
-            <NumberSelector />
+            <ColourCard />
         </div>
     );
 };

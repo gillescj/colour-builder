@@ -2,21 +2,22 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-    padding: 1rem;
+    padding: 0;
     display: grid;
-    grid-template-columns: 2.5rem 4rem 2.5rem;
+    grid-template-columns: 2rem 3.2rem 2rem;
 `;
 
 const SideButton = styled.button`
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: hsl(150, 3%, 13%);
     border: 2px solid black;
-    background: none;
+    background: hsl(0, 0%, 13%);
+    color: hsl(0, 0%, 100%);
     cursor: pointer;
-    width: 2.5rem;
 `;
 
 const NumberInput = styled.input`
+    color: hsl(0, 0%, 13%);
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     border-left: none;

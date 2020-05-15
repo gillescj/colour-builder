@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import NumberSelector from './NumberSelector';
 import ColourDisplay from './ColourDisplay';
+import ColourInput from './ColourInput';
 
 const Container = styled.div`
     padding: 1rem;
-    border: solid 2px black;
+    border: none;
     border-radius: 0.5rem;
+    background: hsl(0, 0%, 100%);
 `;
 
 const ColourCard = () => {
@@ -15,7 +16,7 @@ const ColourCard = () => {
         <Container className="colour-card">
             <h1>Colour Name</h1>
             <ColourDisplay />
-            <NumberSelector />
+            <ColourInput />
         </Container>
     );
 };

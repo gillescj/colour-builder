@@ -1,10 +1,10 @@
 import React from 'react';
-import ColourCard from './ColourCard';
+import ColourCardList from './ColourCardList';
 
 const App = () => {
     return (
         <div className="container">
-            <ColourCard />
+            <ColourCardList />
         </div>
     );
 };

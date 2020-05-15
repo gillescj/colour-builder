@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import ColourDisplay from './ColourDisplay';
 import ColourInput from './ColourInput';
+import ColourNameHeader from './ColourNameHeader';
 
 const Container = styled.div`
     padding: 1rem;
@@ -14,7 +15,7 @@ const Container = styled.div`
 const ColourCard = () => {
     return (
         <Container className="colour-card">
-            <h1>Colour Name</h1>
+            <ColourNameHeader />
             <ColourDisplay />
             <ColourInput />
         </Container>

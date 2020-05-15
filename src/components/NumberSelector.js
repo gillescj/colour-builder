@@ -31,7 +31,7 @@ const NumberInput = styled.input`
     }
 `;
 
-const NumberSelector = ({ minValue = -1000, maxValue = 1000 }) => {
+const NumberSelector = ({ minValue = 0, maxValue = 255 }) => {
     const [numberValue, setNumberValue] = useState(0);
 
     const handleDecrementClick = () => {

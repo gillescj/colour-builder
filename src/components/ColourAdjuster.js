@@ -5,11 +5,11 @@ import NumberSelector from './NumberSelector';
 
 const Container = styled.div``;
 
-const ColourAdjuster = ({ name }) => {
+const ColourAdjuster = ({ name, minValue, maxValue }) => {
     return (
         <Container>
             <header>{name}</header>
-            <NumberSelector />
+            <NumberSelector minValue={minValue} maxValue={maxValue} />
         </Container>
     );
 };

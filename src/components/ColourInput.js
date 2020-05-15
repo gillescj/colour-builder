@@ -12,9 +12,9 @@ const Container = styled.div`
 const ColourInput = () => {
     return (
         <Container>
-            <ColourAdjuster name={'hue'} />
-            <ColourAdjuster name={'saturation'} />
-            <ColourAdjuster name={'lightness'} />
+            <ColourAdjuster name={'hue'} minValue={0} maxValue={359} />
+            <ColourAdjuster name={'saturation'} minValue={0} maxValue={100} />
+            <ColourAdjuster name={'lightness'} minValue={0} maxValue={100} />
         </Container>
     );
 };

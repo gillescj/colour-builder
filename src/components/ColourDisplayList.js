@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import colourCodeObjectToCSS from '../utils/colourCodeObjectToCSS';
+
 import ColourDisplayItem from './ColourDisplayItem';
 
 const Container = styled.div`
@@ -9,16 +11,19 @@ const Container = styled.div`
     grid-gap: 0.2rem;
 `;
 
-const ColourDisplayList = () => {
-    return (
-        <Container className="colour-display-list">
-            <ColourDisplayItem size="2rem" />
-            <ColourDisplayItem size="2rem" />
-            <ColourDisplayItem size="2rem" />
-            <ColourDisplayItem size="2rem" />
-            <ColourDisplayItem size="2rem" />
-        </Container>
+const ColourDisplayList = ({ colourCode }) => {
+    const renderedLightnessList = [10, 20, 30, 40, 50, 60, 70, 80, 90].map(
+        (lightnessValue) => {
+            return (
+                <ColourDisplayItem
+                    size="2rem"
+                    colourCode={{ ...colourCode, lightness: lightnessValue }}
+                />
+            );
+        }
     );
+
+    return <Container className="colour-display-list">{renderedLightnessList}</Container>;
 };
 
 export default ColourDisplayList;

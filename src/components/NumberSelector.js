@@ -31,15 +31,28 @@ const NumberInput = styled.input`
     }
 `;
 
-const NumberSelector = ({ minValue = 0, maxValue = 255 }) => {
-    const [numberValue, setNumberValue] = useState(0);
+const NumberSelector = ({
+    name,
+    minValue = 0,
+    maxValue = 255,
+    defaultValue = 0,
+    handleChange,
+}) => {
+    const [numberValue, setNumberValue] = useState(defaultValue);
 
     const handleDecrementClick = () => {
         setNumberValue((previousNumberValue) => previousNumberValue - 1);
+        handleChange(name, numberValue);
     };
 
     const handleIncrementClick = () => {
         setNumberValue((previousNumberValue) => Number(previousNumberValue) + 1);
+        handleChange(name, numberValue);
+    };
+
+    const handleNumberInputChange = (event) => {
+        setNumberValue(event.target.value);
+        handleChange(name, event.target.value);
     };
 
     return (
@@ -52,7 +65,7 @@ const NumberSelector = ({ minValue = 0, maxValue = 255 }) => {
                 max={maxValue}
                 min={minValue}
                 value={numberValue}
-                onChange={(event) => setNumberValue(event.target.value)}
+                onChange={(event) => handleNumberInputChange(event)}
             />
             <SideButton className="increment" onClick={() => handleIncrementClick()}>
                 +

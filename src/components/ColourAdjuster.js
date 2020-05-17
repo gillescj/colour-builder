@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
+import StoreContext from './StoreContext';
 import NumberSelector from './NumberSelector';
 
 const Container = styled.div``;
 
-const ColourAdjuster = ({ name, minValue, maxValue }) => {
+const ColourAdjuster = ({ colourCodeAttribute, minValue, maxValue }) => {
+    const { colourCode, setColourCode } = useContext(StoreContext);
+
+    const editColourCode = (colourCodeAttribute, colourCodeAttributeValue) => {
+        setColourCode((previousColourCode) => {
+            return {
+                ...previousColourCode,
+                [colourCodeAttribute]: colourCodeAttributeValue,
+            };
+        });
+    };
+
     return (
         <Container>
-            <header>{name}</header>
-            <NumberSelector minValue={minValue} maxValue={maxValue} />
+            <header>{colourCodeAttribute}</header>
+            <NumberSelector
+                name={colourCodeAttribute}
+                minValue={minValue}
+                maxValue={maxValue}
+                defaultValue={colourCode[colourCodeAttribute]}
+                handleChange={editColourCode}
+            />
         </Container>
     );
 };

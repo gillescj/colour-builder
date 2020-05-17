@@ -4,10 +4,19 @@ import styled from 'styled-components';
 const Container = styled.div`
     padding: 0;
     display: grid;
-    grid-template-columns: 2rem 3.2rem 2rem;
 `;
 
-const SideButton = styled.button`
+const Top = styled.div`
+    display: grid;
+    grid-template-columns: minmax(2rem, auto) 4rem minmax(2rem, auto);
+`;
+
+const Bottom = styled.div`
+    display: grid;
+    grid-template-columns: auto auto;
+`;
+
+const AlterNumberButton = styled.button`
     font-size: 1rem;
     color: hsl(150, 3%, 13%);
     border: 2px solid black;
@@ -40,14 +49,9 @@ const NumberSelector = ({
 }) => {
     const [numberValue, setNumberValue] = useState(defaultValue);
 
-    const handleDecrementClick = () => {
-        handleChange(name, numberValue - 1);
-        setNumberValue((previousNumberValue) => previousNumberValue - 1);
-    };
-
-    const handleIncrementClick = () => {
-        handleChange(name, numberValue + 1);
-        setNumberValue((previousNumberValue) => Number(previousNumberValue) + 1);
+    const handleAlterNumberButtonClick = (quantity) => {
+        handleChange(name, Number(numberValue) + quantity);
+        setNumberValue((previousNumberValue) => Number(previousNumberValue) + quantity);
     };
 
     const handleNumberInputChange = (event) => {
@@ -57,19 +61,35 @@ const NumberSelector = ({
 
     return (
         <Container className="number-selector">
-            <SideButton className="decrement" onClick={() => handleDecrementClick()}>
-                -
-            </SideButton>
-            <NumberInput
-                type="number"
-                max={maxValue}
-                min={minValue}
-                value={numberValue}
-                onChange={(event) => handleNumberInputChange(event)}
-            />
-            <SideButton className="increment" onClick={() => handleIncrementClick()}>
-                +
-            </SideButton>
+            <Top>
+                <AlterNumberButton
+                    className="decrement"
+                    onClick={() => handleAlterNumberButtonClick(-1)}
+                >
+                    -
+                </AlterNumberButton>
+                <NumberInput
+                    type="number"
+                    max={maxValue}
+                    min={minValue}
+                    value={numberValue}
+                    onChange={(event) => handleNumberInputChange(event)}
+                />
+                <AlterNumberButton
+                    className="increment"
+                    onClick={() => handleAlterNumberButtonClick(1)}
+                >
+                    +
+                </AlterNumberButton>
+            </Top>
+            <Bottom>
+                <AlterNumberButton onClick={() => handleAlterNumberButtonClick(-5)}>
+                    --
+                </AlterNumberButton>
+                <AlterNumberButton onClick={() => handleAlterNumberButtonClick(5)}>
+                    ++
+                </AlterNumberButton>
+            </Bottom>
         </Container>
     );
 };

@@ -5,8 +5,9 @@ import ColourAdjuster from './ColourAdjuster';
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    max-width: 30rem;
+    grid-template-columns: repeat(3, minmax(5rem, 10rem));
+    grid-gap: 0.5rem;
+    justify-content: start;
 `;
 
 const ColourInput = () => {

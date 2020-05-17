@@ -7,7 +7,7 @@ const Container = styled.div`
     padding: 2rem;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(auto, 30rem);
+    grid-template-columns: minmax(auto, 45rem);
 `;
 
 const ColourCardList = () => {

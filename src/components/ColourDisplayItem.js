@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import colourCodeObjectToCSS from '../utils/colourCodeObjectToCSS';
+
 const Container = styled.div`
     background: ${(props) => props.cssColourCode};
     width: ${(props) => props.size || '2rem'};
@@ -10,8 +12,8 @@ const Container = styled.div`
 const ColourDisplayItem = ({
     size,
     colourCode = { hue: 280, saturation: 50, lightness: 50 },
-    cssColourCode = 'hsl(280, 50%, 50%)',
 }) => {
+    const cssColourCode = colourCodeObjectToCSS(colourCode);
     return (
         <Container size={size} colourCode={colourCode} cssColourCode={cssColourCode} />
     );

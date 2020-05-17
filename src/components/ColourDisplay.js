@@ -18,24 +18,12 @@ const Container = styled.div`
 const ColourDisplay = () => {
     const { colourCode } = useContext(StoreContext);
 
-    const colourCodeObjectToCSS = (colourCodeObject) => {
-        const cssString = `hsl(${colourCodeObject.hue},
-                ${colourCodeObject.saturation}%,
-                ${colourCodeObject.lightness}%)
-                `;
-        return cssString;
-    };
-
     return (
         <Container className="colour-display">
-            <ColourDisplayItem
-                size="4rem"
-                colourCode={colourCode}
-                cssColourCode={colourCodeObjectToCSS(colourCode)}
-            />
+            <ColourDisplayItem size="4rem" colourCode={colourCode} />
             <div className="colour-secondary-content">
-                <ColourDisplayCode cssColourCode={colourCodeObjectToCSS(colourCode)} />
-                <ColourDisplayList />
+                <ColourDisplayCode colourCode={colourCode} />
+                <ColourDisplayList colourCode={colourCode} />
             </div>
         </Container>
     );

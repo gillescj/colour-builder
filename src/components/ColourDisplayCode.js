@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const Container = styled.div``;
 
-const ColourDisplayCode = () => {
-    return <Container>hsl(120, 100%, 25%)</Container>;
+const ColourDisplayCode = ({ cssColourCode }) => {
+    return <Container>{cssColourCode}</Container>;
 };
 
 export default ColourDisplayCode;

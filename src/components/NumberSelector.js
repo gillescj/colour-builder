@@ -41,13 +41,13 @@ const NumberSelector = ({
     const [numberValue, setNumberValue] = useState(defaultValue);
 
     const handleDecrementClick = () => {
+        handleChange(name, numberValue - 1);
         setNumberValue((previousNumberValue) => previousNumberValue - 1);
-        handleChange(name, numberValue);
     };
 
     const handleIncrementClick = () => {
+        handleChange(name, numberValue + 1);
         setNumberValue((previousNumberValue) => Number(previousNumberValue) + 1);
-        handleChange(name, numberValue);
     };
 
     const handleNumberInputChange = (event) => {

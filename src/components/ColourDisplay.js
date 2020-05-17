@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import ColourDisplayItem from './ColourDisplayItem';
 import ColourDisplayList from './ColourDisplayList';
 import ColourDisplayCode from './ColourDisplayCode';
+import StoreContext from './StoreContext';
 
 const Container = styled.div`
     display: grid;
@@ -15,9 +16,11 @@ const Container = styled.div`
 `;
 
 const ColourDisplay = () => {
+    const store = useContext(StoreContext);
+
     return (
         <Container className="colour-display">
-            <ColourDisplayItem size="4rem" />
+            <ColourDisplayItem size="4rem" colourCode={store.colourCode} />
             <div className="colour-secondary-content">
                 <ColourDisplayCode />
                 <ColourDisplayList />

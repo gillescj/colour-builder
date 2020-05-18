@@ -16,6 +16,7 @@ const ColourDisplayList = ({ colourCode }) => {
         (lightnessValue) => {
             return (
                 <ColourDisplayItem
+                    key={`${colourCode.hue}-${colourCode.saturation}-${lightnessValue}`}
                     size="2rem"
                     colourCode={{ ...colourCode, lightness: lightnessValue }}
                 />

@@ -11,20 +11,21 @@ const Container = styled.div`
     grid-gap: 0.2rem;
 `;
 
-const ColourDisplayList = ({ colourCode }) => {
-    const renderedLightnessList = [10, 20, 30, 40, 50, 60, 70, 80, 90].map(
-        (lightnessValue) => {
-            return (
-                <ColourDisplayItem
-                    key={`${colourCode.hue}-${colourCode.saturation}-${lightnessValue}`}
-                    size="2rem"
-                    colourCode={{ ...colourCode, lightness: lightnessValue }}
-                />
-            );
-        }
-    );
+const ColourDisplayList = ({ colourCode, colourCodeAttribute, divisionArray }) => {
+    const renderedAttributeList = divisionArray.map((attributeValue) => {
+        return (
+            <ColourDisplayItem
+                key={colourCodeObjectToCSS({
+                    ...colourCode,
+                    [colourCodeAttribute]: attributeValue,
+                })}
+                size="2rem"
+                colourCode={{ ...colourCode, [colourCodeAttribute]: attributeValue }}
+            />
+        );
+    });
 
-    return <Container className="colour-display-list">{renderedLightnessList}</Container>;
+    return <Container>{renderedAttributeList}</Container>;
 };
 
 export default ColourDisplayList;

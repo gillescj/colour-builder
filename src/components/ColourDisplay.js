@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
@@ -23,7 +25,21 @@ const ColourDisplay = () => {
             <ColourDisplayItem size="4rem" colourCode={colourCode} primary={true} />
             <div className="colour-secondary-content">
                 <ColourDisplayCode colourCode={colourCode} />
-                <ColourDisplayList colourCode={colourCode} />
+                <ColourDisplayList
+                    colourCode={colourCode}
+                    colourCodeAttribute="lightness"
+                    divisionArray={_.range(10, 100, 10)}
+                />
+                <ColourDisplayList
+                    colourCode={colourCode}
+                    colourCodeAttribute="saturation"
+                    divisionArray={_.range(10, 100, 10)}
+                />
+                <ColourDisplayList
+                    colourCode={colourCode}
+                    colourCodeAttribute="hue"
+                    divisionArray={_.range(10, 360, 10)}
+                />
             </div>
         </Container>
     );

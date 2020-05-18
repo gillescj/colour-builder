@@ -4,8 +4,11 @@ import styled from 'styled-components';
 import colourCodeObjectToCSS from '../utils/colourCodeObjectToCSS';
 import StoreContext from './StoreContext';
 
-const Container = styled.div`
-    background: ${(props) => props.cssColourCode};
+const Container = styled.div.attrs((props) => ({
+    style: {
+        background: props.cssColourCode,
+    },
+}))`
     width: ${(props) => props.size || '2rem'};
     height: ${(props) => props.size || '2rem'};
     cursor: pointer;

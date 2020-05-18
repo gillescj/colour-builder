@@ -20,7 +20,7 @@ const ColourDisplay = () => {
 
     return (
         <Container className="colour-display">
-            <ColourDisplayItem size="4rem" colourCode={colourCode} />
+            <ColourDisplayItem size="4rem" colourCode={colourCode} primary={true} />
             <div className="colour-secondary-content">
                 <ColourDisplayCode colourCode={colourCode} />
                 <ColourDisplayList colourCode={colourCode} />

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 
 import ColourDisplayItem from './ColourDisplayItem';
@@ -19,27 +19,45 @@ const Container = styled.div`
 
 const ColourDisplay = () => {
     const { colourCode } = useContext(StoreContext);
+    const [secondaryContent, setSecondaryContent] = useState('lightness');
+
+    const renderColourDisplayList = (attribute) => {
+        if (attribute === 'hue') {
+            return (
+                <ColourDisplayList
+                    colourCode={colourCode}
+                    colourCodeAttribute="hue"
+                    divisionArray={_.range(10, 360, 10)}
+                />
+            );
+        } else {
+            return (
+                <ColourDisplayList
+                    colourCode={colourCode}
+                    colourCodeAttribute={attribute}
+                    divisionArray={_.range(10, 100, 10)}
+                />
+            );
+        }
+    };
+
+    const cycleSecondaryContent = () => {
+        const secondaryContentNames = ['hue', 'saturation', 'lightness'];
+        const index = secondaryContentNames.indexOf(secondaryContent);
+        if (index === secondaryContentNames.length - 1) {
+            setSecondaryContent(secondaryContentNames[0]);
+        } else {
+            setSecondaryContent(secondaryContentNames[index + 1]);
+        }
+    };
 
     return (
         <Container className="colour-display">
             <ColourDisplayItem size="4rem" colourCode={colourCode} primary={true} />
             <div className="colour-secondary-content">
                 <ColourDisplayCode colourCode={colourCode} />
-                <ColourDisplayList
-                    colourCode={colourCode}
-                    colourCodeAttribute="lightness"
-                    divisionArray={_.range(10, 100, 10)}
-                />
-                <ColourDisplayList
-                    colourCode={colourCode}
-                    colourCodeAttribute="saturation"
-                    divisionArray={_.range(10, 100, 10)}
-                />
-                <ColourDisplayList
-                    colourCode={colourCode}
-                    colourCodeAttribute="hue"
-                    divisionArray={_.range(10, 360, 10)}
-                />
+                <button onClick={() => cycleSecondaryContent()}>Swap</button>
+                {renderColourDisplayList(secondaryContent)}
             </div>
         </Container>
     );

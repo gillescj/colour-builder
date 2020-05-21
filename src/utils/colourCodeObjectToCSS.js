@@ -1,8 +1,5 @@
 const colourCodeObjectToCSS = (colourCodeObject) => {
-    const cssString = `hsl(${colourCodeObject.hue},
-            ${colourCodeObject.saturation}%,
-            ${colourCodeObject.lightness}%)
-            `;
+    const cssString = `hsl(${colourCodeObject.hue}, ${colourCodeObject.saturation}%, ${colourCodeObject.lightness}%)`;
     return cssString;
 };
 

@@ -19,6 +19,7 @@ const Container = styled.div`
 
 const ClipboardButton = styled(Button)`
     width: 3rem;
+    padding: 0.5rem 0;
     svg {
         fill: white;
     }

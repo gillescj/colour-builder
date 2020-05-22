@@ -5,7 +5,7 @@ import ColourAdjuster from './ColourAdjuster';
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, minmax(5rem, 10rem));
+    grid-template-columns: repeat(auto-fill, minmax(5rem, 10rem));
     grid-gap: 0.5rem;
     justify-content: start;
 `;

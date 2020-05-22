@@ -2,6 +2,7 @@ import _ from 'lodash';
 
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
+import { Button } from '../styles/styledComponents';
 
 import ColourDisplayItem from './ColourDisplayItem';
 import ColourDisplayList from './ColourDisplayList';
@@ -11,9 +12,29 @@ import StoreContext from './StoreContext';
 const Container = styled.div`
     display: grid;
     grid-template-columns: 5rem minmax(2rem, 20rem);
+    grid-gap: 0.5rem;
     .colour-secondary-content {
         display: grid;
         align-content: space-between;
+        grid-gap: 0.5rem;
+    }
+`;
+
+const ColourListHeader = styled.header`
+    display: flex;
+    justify-content: space-between;
+    h3 {
+        font-weight: normal;
+        margin-right: 0.5rem;
+    }
+
+    button {
+    }
+    @media (max-width: 520px) {
+        flex-direction: column;
+        h3 {
+            text-align: center;
+        }
     }
 `;
 
@@ -56,7 +77,10 @@ const ColourDisplay = () => {
             <ColourDisplayItem size="4rem" colourCode={colourCode} primary={true} />
             <div className="colour-secondary-content">
                 <ColourDisplayCode colourCode={colourCode} />
-                <button onClick={() => cycleSecondaryContent()}>Swap</button>
+                <ColourListHeader>
+                    <h3>{secondaryContent} levels</h3>
+                    <Button onClick={() => cycleSecondaryContent()}>Swap</Button>
+                </ColourListHeader>
                 {renderColourDisplayList(secondaryContent)}
             </div>
         </Container>

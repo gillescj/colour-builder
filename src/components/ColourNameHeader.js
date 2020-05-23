@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.header`
+    display: grid;
+    grid-template-columns: minmax(1rem, 15rem);
     input {
         background: none;
         border: none;

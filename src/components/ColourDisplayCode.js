@@ -7,12 +7,12 @@ import colourCodeObjectToCSS from '../utils/colourCodeObjectToCSS';
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 3rem minmax(1rem, 10rem);
     grid-gap: 0.5rem;
     input {
         background: none;
         border: none;
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: hsl(0, 0%, 25%);
     }
 `;

@@ -15,12 +15,24 @@ const Container = styled.div`
     box-shadow: 0 5rem 3rem -5rem rgba(0, 0, 0, 0.35);
 `;
 
+const MainContent = styled.div`
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+    align-items: flex-start;
+    @media (max-width: 680px) {
+        grid-template-columns: auto;
+    }
+`;
+
 const ColourCard = () => {
     return (
         <Container className="colour-card">
             <ColourNameHeader />
-            <ColourDisplay />
-            <ColourInput />
+            <MainContent>
+                <ColourDisplay />
+                <ColourInput />
+            </MainContent>
         </Container>
     );
 };

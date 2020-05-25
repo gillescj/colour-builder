@@ -43,7 +43,7 @@ const ColourListHeader = styled.header`
 
 const ColourDisplay = () => {
     const { colourCode } = useContext(StoreContext);
-    const [secondaryContent, setSecondaryContent] = useState('lightness');
+    const [secondaryContent, setSecondaryContent] = useState('hue');
 
     const renderColourDisplayList = (attribute) => {
         if (attribute === 'hue') {

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { Button } from '../styles/styledComponents';
 import { ReactComponent as ClipboardSVG } from '../assets/svgs/clipboard.svg';
@@ -22,15 +22,18 @@ const ClipboardButton = styled(Button)`
     display: flex;
     align-items: center;
     justify-content: center;
+    background: ${(props) =>
+        props.copied ? 'hsl(145, 100%, 39%)' : 'hsl(228, 100%, 65%)'};
     width: 3rem;
     padding: 0.5rem 0;
     svg {
-        fill: white;
+        fill: ${(props) => (props.copied ? 'black' : 'white')};
     }
 `;
 
 const ColourDisplayCode = ({ colourCode }) => {
     const cssColourCode = colourCodeObjectToCSS(colourCode);
+    const [copiedColourCode, setCopiedColourCode] = useState();
     const colourCodeInputRef = useRef();
 
     const handleButtonCopy = (event) => {
@@ -41,11 +44,13 @@ const ColourDisplayCode = ({ colourCode }) => {
     const handleButtonClick = () => {
         colourCodeInputRef.current.select();
         document.execCommand('copy');
+        setCopiedColourCode(cssColourCode);
     };
 
     return (
         <Container>
             <ClipboardButton
+                copied={copiedColourCode === cssColourCode}
                 onCopy={(event) => handleButtonCopy(event)}
                 onClick={() => handleButtonClick()}
             >

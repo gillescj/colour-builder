@@ -19,6 +19,9 @@ const Container = styled.div`
 `;
 
 const ClipboardButton = styled(Button)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 3rem;
     padding: 0.5rem 0;
     svg {

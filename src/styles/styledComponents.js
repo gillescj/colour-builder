@@ -7,5 +7,6 @@ export const Button = styled.button`
     font-size: 1rem;
     border-radius: 0.5rem;
     color: hsl(199, 85%, 95%);
+    outline: none;
     cursor: pointer;
 `;

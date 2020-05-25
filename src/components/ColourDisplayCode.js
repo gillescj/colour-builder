@@ -14,6 +14,7 @@ const Container = styled.div`
         border: none;
         font-size: 1rem;
         color: hsl(0, 0%, 25%);
+        outline: none;
     }
 `;
 

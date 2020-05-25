@@ -3,6 +3,7 @@ import _ from 'lodash';
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../styles/styledComponents';
+import { ReactComponent as CycleIcon } from '../assets/svgs/cycle.svg';
 
 import ColourDisplayItem from './ColourDisplayItem';
 import ColourDisplayList from './ColourDisplayList';
@@ -38,6 +39,17 @@ const ColourListHeader = styled.header`
         h3 {
             text-align: center;
         }
+    }
+`;
+
+const CycleButton = styled(Button)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    padding: 0.5rem 0;
+    svg {
+        fill: white;
     }
 `;
 
@@ -82,7 +94,9 @@ const ColourDisplay = () => {
                 <ColourDisplayCode colourCode={colourCode} />
                 <ColourListHeader>
                     <h3>{secondaryContent} levels</h3>
-                    <Button onClick={() => cycleSecondaryContent()}>Swap</Button>
+                    <CycleButton onClick={() => cycleSecondaryContent()}>
+                        <CycleIcon />
+                    </CycleButton>
                 </ColourListHeader>
                 {renderColourDisplayList(secondaryContent)}
             </div>

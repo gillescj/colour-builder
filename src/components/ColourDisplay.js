@@ -51,7 +51,7 @@ const ColourDisplay = () => {
                 <ColourDisplayList
                     colourCode={colourCode}
                     colourCodeAttribute="hue"
-                    divisionArray={_.range(10, 360, 10)}
+                    divisionArray={_.range(0, 360, 10)}
                 />
             );
         } else {

@@ -9,10 +9,9 @@ const Container = styled.div`
     display: grid;
     grid-gap: 1rem;
     padding: 1rem;
-    border: none;
-    border-radius: 1.5rem;
     background: hsl(0, 0%, 100%);
-    box-shadow: 0 5rem 3rem -5rem rgba(0, 0, 0, 0.35);
+    box-shadow: -10px 10px 0 black;
+    border: 1px solid black;
 `;
 
 const MainContent = styled.div`

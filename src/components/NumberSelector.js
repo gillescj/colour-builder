@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const Container = styled.div`
     padding: 0;
     display: grid;
+    box-shadow: -3px 3px 0 black;
 `;
 
 const Top = styled.div`

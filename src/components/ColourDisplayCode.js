@@ -23,7 +23,7 @@ const ClipboardButton = styled(Button)`
     align-items: center;
     justify-content: center;
     background: ${(props) =>
-        props.copied ? 'hsl(145, 100%, 39%)' : 'hsl(228, 100%, 65%)'};
+        props.copied ? 'hsl(199, 92%, 56%)' : 'hsl(228, 100%, 65%)'};
     width: 3rem;
     padding: 0.5rem 0;
     svg {

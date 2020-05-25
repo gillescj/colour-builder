@@ -12,6 +12,7 @@ const Container = styled.div.attrs((props) => ({
     width: ${(props) => props.size || '2rem'};
     height: ${(props) => props.size || '2rem'};
     cursor: pointer;
+    border: black solid 1px;
 `;
 
 const ColourDisplayItem = ({

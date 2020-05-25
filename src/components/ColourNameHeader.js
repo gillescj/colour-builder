@@ -12,7 +12,7 @@ const Container = styled.header`
 `;
 
 const ColourNameHeader = () => {
-    const [colourName, setColourName] = useState('Colour Name');
+    const [colourName, setColourName] = useState('');
 
     const handleColourNameInputChange = (event) => {
         setColourName(event.target.value);

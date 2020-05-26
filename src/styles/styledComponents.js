@@ -6,7 +6,7 @@ export const Button = styled.button`
     background: hsl(228, 100%, 65%);
     font-size: 1rem;
     color: hsl(199, 85%, 95%);
-    box-shadow: -3px 3px 0 black;
+    box-shadow: -3px 3px 0 hsl(60, 6%, 19%);
     outline: none;
     cursor: pointer;
 `;

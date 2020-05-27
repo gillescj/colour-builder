@@ -8,9 +8,10 @@ const Container = styled.header`
     grid-template-columns: minmax(1rem, 15rem) auto;
     input {
         justify-self: start;
-        background: none;
-        border: none;
+        background: hsl(10, 10%, 90%);
+        border: solid 2px hsl(10, 10%, 70%);
         font-size: 1.5rem;
+        padding: 0.5rem;
     }
 `;
 
@@ -39,7 +40,7 @@ const ColourNameHeader = () => {
             <input
                 value={colourName}
                 type="text"
-                placeholder="Colour Name"
+                placeholder="Name Here..."
                 onChange={(event) => handleColourNameInputChange(event)}
             />
             <SaveButton>

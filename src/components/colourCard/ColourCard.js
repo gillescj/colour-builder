@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import ColourDisplay from './ColourDisplay';
 import ColourInput from './ColourInput';
 import ColourNameHeader from './ColourNameHeader';
-import StoreContext from './StoreContext';
-import colourCodeObjectToCSS from '../utils/colourCodeObjectToCSS';
+import StoreContext from '../StoreContext';
+import colourCodeObjectToCSS from '../../utils/colourCodeObjectToCSS';
 
 const Container = styled.div.attrs((props) => ({
     style: {

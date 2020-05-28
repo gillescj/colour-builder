@@ -2,13 +2,13 @@ import _ from 'lodash';
 
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { Button } from '../styles/styledComponents';
-import { ReactComponent as CycleIcon } from '../assets/svgs/cycle.svg';
+import { Button } from '../../styles/styledComponents';
+import { ReactComponent as CycleIcon } from '../../assets/svgs/cycle.svg';
 
 import ColourDisplayItem from './ColourDisplayItem';
 import ColourDisplayList from './ColourDisplayList';
 import ColourDisplayCode from './ColourDisplayCode';
-import StoreContext from './StoreContext';
+import StoreContext from '../StoreContext';
 
 const Container = styled.div`
     display: grid;

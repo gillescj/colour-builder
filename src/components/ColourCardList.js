@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ColourCard from './ColourCard';
+import ColourCard from './colourCard/ColourCard';
 
 const Container = styled.div`
     padding: 2rem;

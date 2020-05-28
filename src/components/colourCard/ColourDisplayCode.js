@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import { Button } from '../styles/styledComponents';
-import { ReactComponent as ClipboardSVG } from '../assets/svgs/clipboard.svg';
+import { Button } from '../../styles/styledComponents';
+import { ReactComponent as ClipboardSVG } from '../../assets/svgs/clipboard.svg';
 
-import colourCodeObjectToCSS from '../utils/colourCodeObjectToCSS';
+import colourCodeObjectToCSS from '../../utils/colourCodeObjectToCSS';
 
 const Container = styled.div`
     display: grid;

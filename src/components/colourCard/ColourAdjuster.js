@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import StoreContext from './StoreContext';
+import StoreContext from '../StoreContext';
 import NumberSelector from './NumberSelector';
 
 const Container = styled.div``;

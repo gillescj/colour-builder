@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import colourCodeObjectToCSS from '../utils/colourCodeObjectToCSS';
-import StoreContext from './StoreContext';
+import colourCodeObjectToCSS from '../../utils/colourCodeObjectToCSS';
+import StoreContext from '../StoreContext';
 
 const Container = styled.div.attrs((props) => ({
     style: {

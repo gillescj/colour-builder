@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import colourCodeObjectToCSS from '../utils/colourCodeObjectToCSS';
+import colourCodeObjectToCSS from '../../utils/colourCodeObjectToCSS';
 
 import ColourDisplayItem from './ColourDisplayItem';
 

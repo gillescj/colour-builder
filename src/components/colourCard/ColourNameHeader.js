@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as SaveLogo } from '../assets/svgs/save.svg';
-import { Button } from '../styles/styledComponents';
+import { ReactComponent as SaveLogo } from '../../assets/svgs/save.svg';
+import { Button } from '../../styles/styledComponents';
 
 const Container = styled.header`
     display: grid;

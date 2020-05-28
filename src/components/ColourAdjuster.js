@@ -22,11 +22,12 @@ const ColourAdjuster = ({ colourCodeAttribute, minValue, maxValue }) => {
         <Container>
             <header>{colourCodeAttribute}</header>
             <NumberSelector
-                name={colourCodeAttribute}
+                attributeName={colourCodeAttribute}
+                attributeValue={colourCode[colourCodeAttribute]}
                 minValue={minValue}
                 maxValue={maxValue}
                 defaultValue={colourCode[colourCodeAttribute]}
-                handleChange={editColourCode}
+                editColourCode={editColourCode}
             />
         </Container>
     );

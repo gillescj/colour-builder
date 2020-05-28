@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -42,23 +42,28 @@ const NumberInput = styled.input`
 `;
 
 const NumberSelector = ({
-    name,
+    attributeName,
+    attributeValue,
     minValue = 0,
     maxValue = 255,
     defaultValue = 0,
-    handleChange,
+    editColourCode,
 }) => {
     const [numberValue, setNumberValue] = useState(defaultValue);
 
     const handleAlterNumberButtonClick = (quantity) => {
-        handleChange(name, Number(numberValue) + quantity);
+        editColourCode(attributeName, Number(numberValue) + quantity);
         setNumberValue((previousNumberValue) => Number(previousNumberValue) + quantity);
     };
 
     const handleNumberInputChange = (event) => {
         setNumberValue(event.target.value);
-        handleChange(name, event.target.value);
+        editColourCode(attributeName, event.target.value);
     };
+
+    useEffect(() => {
+        setNumberValue(attributeValue);
+    }, [attributeValue]);
 
     return (
         <Container className="number-selector">

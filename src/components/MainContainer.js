@@ -13,7 +13,7 @@ const Container = styled.div`
     }
 `;
 
-const ColourCardList = () => {
+const MainContainer = () => {
     return (
         <Container>
             <ColourCard />
@@ -21,4 +21,4 @@ const ColourCardList = () => {
     );
 };
 
-export default ColourCardList;
+export default MainContainer;

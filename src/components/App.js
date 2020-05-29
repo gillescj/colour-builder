@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import ColourCardList from './ColourCardList';
+import MainContainer from './MainContainer';
 import StoreContext from './StoreContext';
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
     return (
         <StoreContext.Provider value={store}>
             <div className="container">
-                <ColourCardList />
+                <MainContainer />
             </div>
         </StoreContext.Provider>
     );

@@ -33,6 +33,15 @@ const AlterNumberButton = styled.button`
     }
 `;
 
+const AlterNumberButtonBottomRight = styled(AlterNumberButton)`
+    border-top: none;
+    border-left: none;
+`;
+
+const AlterNumberButtonBottomLeft = styled(AlterNumberButton)`
+    border-top: none;
+`;
+
 const NumberInput = styled.input`
     color: hsl(0, 0%, 13%);
     border-top: 2px solid black;
@@ -96,12 +105,16 @@ const NumberSelector = ({
                 </AlterNumberButton>
             </Top>
             <Bottom>
-                <AlterNumberButton onClick={() => handleAlterNumberButtonClick(-5)}>
+                <AlterNumberButtonBottomLeft
+                    onClick={() => handleAlterNumberButtonClick(-5)}
+                >
                     --
-                </AlterNumberButton>
-                <AlterNumberButton onClick={() => handleAlterNumberButtonClick(5)}>
+                </AlterNumberButtonBottomLeft>
+                <AlterNumberButtonBottomRight
+                    onClick={() => handleAlterNumberButtonClick(5)}
+                >
                     ++
-                </AlterNumberButton>
+                </AlterNumberButtonBottomRight>
             </Bottom>
         </Container>
     );

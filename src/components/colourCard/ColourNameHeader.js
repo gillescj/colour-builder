@@ -4,9 +4,9 @@ import { ReactComponent as HeartSVG } from '../../assets/svgs/8-bit-heart.svg';
 
 const Container = styled.header`
     display: grid;
-    grid-template-columns: minmax(1rem, 15rem) auto;
+    grid-template-columns: minmax(1rem, 22rem) auto;
+    grid-gap: 1rem;
     input {
-        justify-self: start;
         background: hsl(10, 10%, 90%);
         border: solid 2px hsl(10, 10%, 70%);
         font-size: 1.5rem;

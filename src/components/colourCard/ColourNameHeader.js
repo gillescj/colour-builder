@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as SaveSVG } from '../../assets/svgs/save.svg';
 import { ReactComponent as HeartSVG } from '../../assets/svgs/8-bit-heart.svg';
-import { Button } from '../../styles/styledComponents';
 
 const Container = styled.header`
     display: grid;

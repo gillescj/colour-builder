@@ -41,7 +41,7 @@ const ClipboardSVGStyled = styled(ClipboardSVG)`
         }
 
         100% {
-            transform: translateY(50px);
+            transform: translateY(10px);
             opacity: 0;
         }
     }
@@ -49,11 +49,11 @@ const ClipboardSVGStyled = styled(ClipboardSVG)`
 
 const CheckmarkSVGStyled = styled(CheckmarkSVG)`
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-10px);
     animation: ${(props) => (props.copied ? `appear 0.2s linear forwards` : '')};
     @keyframes appear {
         0% {
-            transform: translateY(-50px);
+            transform: translateY(-10px);
             opacity: 0;
         }
 

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { Button } from '../../styles/styledComponents';
 import { ReactComponent as ClipboardSVG } from '../../assets/svgs/clipboard.svg';
+import { ReactComponent as CheckmarkSVG } from '../../assets/svgs/checkmark.svg';
 
 import colourCodeObjectToCSS from '../../utils/colourCodeObjectToCSS';
 
@@ -19,21 +20,54 @@ const Container = styled.div`
 `;
 
 const ClipboardButton = styled(Button)`
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
-    background: ${(props) =>
-        props.copied ? 'hsl(199, 92%, 56%)' : 'hsl(228, 100%, 65%)'};
     width: 3rem;
     padding: 0.5rem 0;
     svg {
-        fill: ${(props) => (props.copied ? 'black' : 'white')};
+        grid-row: 1/-1;
+        grid-column: 1/-1;
+        fill: white;
+    }
+`;
+
+const ClipboardSVGStyled = styled(ClipboardSVG)`
+    animation: ${(props) => (props.copied ? `disappear 0.2s linear forwards` : '')};
+    @keyframes disappear {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+    }
+`;
+
+const CheckmarkSVGStyled = styled(CheckmarkSVG)`
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: ${(props) => (props.copied ? `appear 0.2s linear forwards` : '')};
+    @keyframes appear {
+        0% {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 `;
 
 const ColourDisplayCode = ({ colourCode }) => {
-    const cssColourCode = colourCodeObjectToCSS(colourCode);
     const [copiedColourCode, setCopiedColourCode] = useState();
+
+    const cssColourCode = colourCodeObjectToCSS(colourCode);
     const colourCodeInputRef = useRef();
 
     const handleButtonCopy = (event) => {
@@ -54,7 +88,8 @@ const ColourDisplayCode = ({ colourCode }) => {
                 onCopy={(event) => handleButtonCopy(event)}
                 onClick={() => handleButtonClick()}
             >
-                <ClipboardSVG />
+                <ClipboardSVGStyled copied={copiedColourCode === cssColourCode} />
+                <CheckmarkSVGStyled copied={copiedColourCode === cssColourCode} />
             </ClipboardButton>
             <input ref={colourCodeInputRef} value={cssColourCode} readOnly />
         </Container>

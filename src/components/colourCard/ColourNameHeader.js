@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as SaveLogo } from '../../assets/svgs/save.svg';
+import { ReactComponent as SaveSVG } from '../../assets/svgs/save.svg';
+import { ReactComponent as HeartSVG } from '../../assets/svgs/8-bit-heart.svg';
 import { Button } from '../../styles/styledComponents';
 
 const Container = styled.header`
@@ -15,16 +16,23 @@ const Container = styled.header`
     }
 `;
 
-const SaveButton = styled(Button)`
+const SaveButton = styled.div`
     justify-self: end;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem;
-    background: hsl(340, 82%, 52%);
-    svg {
-        fill: white;
-        width: 2rem;
+`;
+
+const SaveLogo = styled(HeartSVG)`
+    width: 3rem;
+    height: 3rem;
+    fill: hsl(0, 0%, 13%);
+    cursor: pointer;
+    filter: drop-shadow(-3px 3px 0 hsl(340, 60%, 59%));
+
+    &:hover {
+        fill: hsl(340, 80%, 45%);
+        filter: drop-shadow(-3px 3px 0 hsl(340, 60%, 59%));
     }
 `;
 
@@ -44,7 +52,7 @@ const ColourNameHeader = () => {
                 onChange={(event) => handleColourNameInputChange(event)}
             />
             <SaveButton>
-                <SaveLogo />
+                <SaveLogo></SaveLogo>
             </SaveButton>
         </Container>
     );

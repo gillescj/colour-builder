@@ -24,6 +24,13 @@ const AlterNumberButton = styled.button`
     background: hsl(0, 0%, 13%);
     color: hsl(0, 0%, 100%);
     cursor: pointer;
+    &:hover {
+        background: hsl(60, 6%, 25%);
+        color: white;
+        svg {
+            fill: white;
+        }
+    }
 `;
 
 const NumberInput = styled.input`

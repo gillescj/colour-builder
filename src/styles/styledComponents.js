@@ -9,4 +9,11 @@ export const Button = styled.button`
     box-shadow: -3px 3px 0 hsl(60, 6%, 19%);
     outline: none;
     cursor: pointer;
+    &:hover {
+        background: hsl(60, 6%, 25%);
+        color: white;
+        svg {
+            fill: white;
+        }
+    }
 `;

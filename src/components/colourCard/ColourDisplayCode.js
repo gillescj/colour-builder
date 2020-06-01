@@ -33,7 +33,8 @@ const ClipboardButton = styled(Button)`
 `;
 
 const ClipboardSVGStyled = styled(ClipboardSVG)`
-    animation: ${(props) => (props.copied ? `disappear 0.2s linear forwards` : '')};
+    animation: ${(props) =>
+        props.copied === 'true' ? `disappear 0.2s linear forwards` : ''};
     @keyframes disappear {
         0% {
             transform: translateY(0);
@@ -50,7 +51,8 @@ const ClipboardSVGStyled = styled(ClipboardSVG)`
 const CheckmarkSVGStyled = styled(CheckmarkSVG)`
     opacity: 0;
     transform: translateY(-10px);
-    animation: ${(props) => (props.copied ? `appear 0.2s linear forwards` : '')};
+    animation: ${(props) =>
+        props.copied === 'true' ? `appear 0.2s linear forwards` : ''};
     @keyframes appear {
         0% {
             transform: translateY(-10px);
@@ -84,12 +86,15 @@ const ColourDisplayCode = ({ colourCode }) => {
     return (
         <Container>
             <ClipboardButton
-                copied={copiedColourCode === cssColourCode}
                 onCopy={(event) => handleButtonCopy(event)}
                 onClick={() => handleButtonClick()}
             >
-                <ClipboardSVGStyled copied={copiedColourCode === cssColourCode} />
-                <CheckmarkSVGStyled copied={copiedColourCode === cssColourCode} />
+                <ClipboardSVGStyled
+                    copied={(copiedColourCode === cssColourCode).toString()}
+                />
+                <CheckmarkSVGStyled
+                    copied={(copiedColourCode === cssColourCode).toString()}
+                />
             </ClipboardButton>
             <input ref={colourCodeInputRef} value={cssColourCode} readOnly />
         </Container>

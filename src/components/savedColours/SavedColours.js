@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
+import StoreContext from '../StoreContext';
 import SavedColourItem from './SavedColourItem';
+import colourCodeObjectToCSS from '../../utils/colourCodeObjectToCSS';
 
 const Container = styled.div`
     display: flex;
@@ -13,21 +15,28 @@ const Container = styled.div`
 `;
 
 const SavedColours = () => {
+    const { colourList } = useContext(StoreContext);
+
+    const renderedSavedColourItems = colourList.map((colour) => {
+        const colourCodeCSS = colourCodeObjectToCSS(colour);
+        return (
+            <SavedColourItem
+                key={colour.id}
+                name={colour.name}
+                colourCodeCSS={colourCodeCSS}
+            />
+        );
+    });
+
     return (
         <Container>
-            <SavedColourItem name="Cool Orange" />
-            <SavedColourItem name="Stylish Sugar Red" />
-            <SavedColourItem name="Just Blue" />
-            <SavedColourItem name="Cool Orange" selected />
-            <SavedColourItem name="Country Wide Lavender" />
-            <SavedColourItem name="Just Blue" />
-            <SavedColourItem name="Cool Orange" />
-            <SavedColourItem name="Country Wide Lavender" />
-            <SavedColourItem name="Just Blue" />
-            <SavedColourItem name="Tan Burnt Brown" />
-            <SavedColourItem name="Simple Cyan" />
-            <SavedColourItem name="Fromage Yellow" />
-            <SavedColourItem name="Stylish Sugar Red" />
+            {renderedSavedColourItems}
+            <SavedColourItem
+                key={'100'}
+                name="Ridiculous Royal Blue"
+                colourCodeCSS="hsl(233, 83%, 42%)"
+                selected
+            />
         </Container>
     );
 };

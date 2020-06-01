@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as HeartSVG } from '../../assets/svgs/8-bit-heart.svg';
+import { ReactComponent as BrokenHeartSVG } from '../../assets/svgs/8-bit-heart-broken.svg';
 
 const Container = styled.header`
     display: grid;

@@ -35,24 +35,36 @@ const SaveLogo = styled(HeartSVG)`
     }
 `;
 
-const ColourNameHeader = () => {
+const UnsaveLogo = styled(BrokenHeartSVG)`
+    width: 3rem;
+    height: 3rem;
+    fill: hsl(0, 0%, 13%);
+    cursor: pointer;
+    filter: drop-shadow(-3px 3px 0 hsl(340, 60%, 59%));
+
+    &:hover {
+        fill: hsl(340, 80%, 45%);
+        filter: drop-shadow(-3px 3px 0 hsl(340, 60%, 59%));
+    }
+`;
+
+const ColourNameHeader = ({ saved }) => {
     const [colourName, setColourName] = useState('');
 
     const handleColourNameInputChange = (event) => {
         setColourName(event.target.value);
     };
+    const renderSaveLogo = saved ? <UnsaveLogo /> : <SaveLogo />;
 
     return (
         <Container>
             <input
                 value={colourName}
                 type="text"
-                placeholder="Name Here..."
+                placeholder="Enter Colour Name"
                 onChange={(event) => handleColourNameInputChange(event)}
             />
-            <SaveButton>
-                <SaveLogo></SaveLogo>
-            </SaveButton>
+            <SaveButton>{renderSaveLogo}</SaveButton>
         </Container>
     );
 };

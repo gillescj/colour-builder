@@ -10,7 +10,7 @@ const App = () => {
         lightness: 50,
     });
 
-    const [colourList, setColourList] = useState([
+    const [savedColoursList, setSavedColoursList] = useState([
         {
             id: _.uniqueId(),
             name: 'Cool Orange',
@@ -66,10 +66,10 @@ const App = () => {
         () => ({
             selectedColour,
             setSelectedColour,
-            colourList,
-            setColourList,
+            savedColoursList,
+            setSavedColoursList,
         }),
-        [selectedColour, setSelectedColour, colourList, setColourList]
+        [selectedColour, setSelectedColour, savedColoursList, setSavedColoursList]
     );
 
     return (

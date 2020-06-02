@@ -15,9 +15,9 @@ const Container = styled.div`
 `;
 
 const SavedColours = () => {
-    const { colourList } = useContext(StoreContext);
+    const { savedColoursList } = useContext(StoreContext);
 
-    const renderedSavedColourItems = colourList.map((colour) => {
+    const renderedSavedColourItems = savedColoursList.map((colour) => {
         const colourCodeCSS = colourObjectToCSS(colour);
         return (
             <SavedColourItem

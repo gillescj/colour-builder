@@ -4,7 +4,7 @@ import { Button } from '../../styles/styledComponents';
 import { ReactComponent as ClipboardSVG } from '../../assets/svgs/clipboard.svg';
 import { ReactComponent as CheckmarkSVG } from '../../assets/svgs/checkmark.svg';
 
-import colourCodeObjectToCSS from '../../utils/colourCodeObjectToCSS';
+import colourObjectToCSS from '../../utils/colourObjectToCSS';
 
 const Container = styled.div`
     display: grid;
@@ -66,10 +66,10 @@ const CheckmarkSVGStyled = styled(CheckmarkSVG)`
     }
 `;
 
-const ColourDisplayCode = ({ colourCode }) => {
+const ColourDisplayCode = ({ selectedColour }) => {
     const [copiedColourCode, setCopiedColourCode] = useState();
 
-    const cssColourCode = colourCodeObjectToCSS(colourCode);
+    const cssColourCode = colourObjectToCSS(selectedColour);
     const colourCodeInputRef = useRef();
 
     const handleButtonCopy = (event) => {

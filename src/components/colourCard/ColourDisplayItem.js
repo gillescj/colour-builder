@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import colourCodeObjectToCSS from '../../utils/colourCodeObjectToCSS';
+import colourObjectToCSS from '../../utils/colourObjectToCSS';
 import StoreContext from '../StoreContext';
 
 const Container = styled.div.attrs((props) => ({
@@ -20,21 +20,21 @@ const Container = styled.div.attrs((props) => ({
 
 const ColourDisplayItem = ({
     size,
-    colourCode = { hue: 280, saturation: 50, lightness: 50 },
+    selectedColour = { hue: 280, saturation: 50, lightness: 50 },
     primary = false,
 }) => {
-    const { setColourCode } = useContext(StoreContext);
-    const cssColourCode = colourCodeObjectToCSS(colourCode);
+    const { setSelectedColour } = useContext(StoreContext);
+    const cssColourCode = colourObjectToCSS(selectedColour);
 
     const handleColourDisplayItemClick = () => {
         if (primary) return;
-        setColourCode(colourCode);
+        setSelectedColour(selectedColour);
     };
 
     return (
         <Container
             size={size}
-            colourCode={colourCode}
+            selectedColour={selectedColour}
             cssColourCode={cssColourCode}
             onClick={() => handleColourDisplayItemClick()}
         />

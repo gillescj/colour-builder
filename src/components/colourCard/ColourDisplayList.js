@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import colourCodeObjectToCSS from '../../utils/colourCodeObjectToCSS';
+import colourObjectToCSS from '../../utils/colourObjectToCSS';
 
 import ColourDisplayItem from './ColourDisplayItem';
 
@@ -11,16 +11,19 @@ const Container = styled.div`
     grid-gap: 0.2rem;
 `;
 
-const ColourDisplayList = ({ colourCode, colourCodeAttribute, divisionArray }) => {
+const ColourDisplayList = ({ selectedColour, colourCodeAttribute, divisionArray }) => {
     const renderedAttributeList = divisionArray.map((attributeValue) => {
         return (
             <ColourDisplayItem
-                key={colourCodeObjectToCSS({
-                    ...colourCode,
+                key={colourObjectToCSS({
+                    ...selectedColour,
                     [colourCodeAttribute]: attributeValue,
                 })}
                 size="2rem"
-                colourCode={{ ...colourCode, [colourCodeAttribute]: attributeValue }}
+                selectedColour={{
+                    ...selectedColour,
+                    [colourCodeAttribute]: attributeValue,
+                }}
             />
         );
     });

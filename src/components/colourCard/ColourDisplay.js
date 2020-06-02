@@ -54,14 +54,14 @@ const CycleButton = styled(Button)`
 `;
 
 const ColourDisplay = () => {
-    const { colourCode } = useContext(StoreContext);
+    const { selectedColour } = useContext(StoreContext);
     const [secondaryContent, setSecondaryContent] = useState('hue');
 
     const renderColourDisplayList = (attribute) => {
         if (attribute === 'hue') {
             return (
                 <ColourDisplayList
-                    colourCode={colourCode}
+                    selectedColour={selectedColour}
                     colourCodeAttribute="hue"
                     divisionArray={_.range(0, 360, 10)}
                 />
@@ -69,7 +69,7 @@ const ColourDisplay = () => {
         } else {
             return (
                 <ColourDisplayList
-                    colourCode={colourCode}
+                    selectedColour={selectedColour}
                     colourCodeAttribute={attribute}
                     divisionArray={_.range(10, 100, 10)}
                 />
@@ -89,9 +89,13 @@ const ColourDisplay = () => {
 
     return (
         <Container className="colour-display">
-            <ColourDisplayItem size="4rem" colourCode={colourCode} primary={true} />
+            <ColourDisplayItem
+                size="4rem"
+                selectedColour={selectedColour}
+                primary={true}
+            />
             <div className="colour-secondary-content">
-                <ColourDisplayCode colourCode={colourCode} />
+                <ColourDisplayCode selectedColour={selectedColour} />
                 <ColourListHeader>
                     <h3>{secondaryContent} levels</h3>
                     <CycleButton onClick={() => cycleSecondaryContent()}>

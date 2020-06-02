@@ -63,18 +63,18 @@ const NumberSelector = ({
     minValue = 0,
     maxValue = 255,
     defaultValue = 0,
-    editColourCode,
+    editSelectedColour,
 }) => {
     const [numberValue, setNumberValue] = useState(defaultValue);
 
     const handleAlterNumberButtonClick = (quantity) => {
-        editColourCode(attributeName, Number(numberValue) + quantity);
+        editSelectedColour(attributeName, Number(numberValue) + quantity);
         setNumberValue((previousNumberValue) => Number(previousNumberValue) + quantity);
     };
 
     const handleNumberInputChange = (event) => {
         setNumberValue(event.target.value);
-        editColourCode(attributeName, event.target.value);
+        editSelectedColour(attributeName, event.target.value);
     };
 
     useEffect(() => {

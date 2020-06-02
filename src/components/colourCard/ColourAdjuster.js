@@ -7,12 +7,12 @@ import NumberSelector from './NumberSelector';
 const Container = styled.div``;
 
 const ColourAdjuster = ({ colourCodeAttribute, minValue, maxValue }) => {
-    const { colourCode, setColourCode } = useContext(StoreContext);
+    const { selectedColour, setSelectedColour } = useContext(StoreContext);
 
-    const editColourCode = (colourCodeAttribute, colourCodeAttributeValue) => {
-        setColourCode((previousColourCode) => {
+    const editSelectedColour = (colourCodeAttribute, colourCodeAttributeValue) => {
+        setSelectedColour((previousSelectedColour) => {
             return {
-                ...previousColourCode,
+                ...previousSelectedColour,
                 [colourCodeAttribute]: colourCodeAttributeValue,
             };
         });
@@ -23,11 +23,11 @@ const ColourAdjuster = ({ colourCodeAttribute, minValue, maxValue }) => {
             <header>{colourCodeAttribute}</header>
             <NumberSelector
                 attributeName={colourCodeAttribute}
-                attributeValue={colourCode[colourCodeAttribute]}
+                attributeValue={selectedColour[colourCodeAttribute]}
                 minValue={minValue}
                 maxValue={maxValue}
-                defaultValue={colourCode[colourCodeAttribute]}
-                editColourCode={editColourCode}
+                defaultValue={selectedColour[colourCodeAttribute]}
+                editSelectedColour={editSelectedColour}
             />
         </Container>
     );

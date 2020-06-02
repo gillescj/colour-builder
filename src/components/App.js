@@ -4,7 +4,7 @@ import StoreContext from './StoreContext';
 import _ from 'lodash';
 
 const App = () => {
-    const [colourCode, setColourCode] = useState({
+    const [selectedColour, setSelectedColour] = useState({
         hue: 240,
         saturation: 50,
         lightness: 50,
@@ -64,12 +64,12 @@ const App = () => {
 
     const store = useMemo(
         () => ({
-            colourCode,
-            setColourCode,
+            selectedColour,
+            setSelectedColour,
             colourList,
             setColourList,
         }),
-        [colourCode, setColourCode, colourList, setColourList]
+        [selectedColour, setSelectedColour, colourList, setColourList]
     );
 
     return (

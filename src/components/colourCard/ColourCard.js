@@ -5,7 +5,7 @@ import ColourDisplay from './ColourDisplay';
 import ColourInput from './ColourInput';
 import ColourNameHeader from './ColourNameHeader';
 import StoreContext from '../StoreContext';
-import colourCodeObjectToCSS from '../../utils/colourCodeObjectToCSS';
+import colourObjectToCSS from '../../utils/colourObjectToCSS';
 
 const Container = styled.div.attrs((props) => ({
     style: {
@@ -30,10 +30,10 @@ const MainContent = styled.div`
 `;
 
 const ColourCard = () => {
-    const { colourCode } = useContext(StoreContext);
+    const { selectedColour } = useContext(StoreContext);
 
     return (
-        <Container cssColourCode={colourCodeObjectToCSS(colourCode)}>
+        <Container cssColourCode={colourObjectToCSS(selectedColour)}>
             <ColourNameHeader />
             <MainContent>
                 <ColourDisplay />

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import StoreContext from '../StoreContext';
 import SavedColourItem from './SavedColourItem';
-import colourCodeObjectToCSS from '../../utils/colourCodeObjectToCSS';
+import colourObjectToCSS from '../../utils/colourObjectToCSS';
 
 const Container = styled.div`
     display: flex;
@@ -18,7 +18,7 @@ const SavedColours = () => {
     const { colourList } = useContext(StoreContext);
 
     const renderedSavedColourItems = colourList.map((colour) => {
-        const colourCodeCSS = colourCodeObjectToCSS(colour);
+        const colourCodeCSS = colourObjectToCSS(colour);
         return (
             <SavedColourItem
                 key={colour.id}

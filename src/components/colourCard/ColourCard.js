@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import ColourDisplay from './ColourDisplay';
 import ColourInput from './ColourInput';
-import ColourNameHeader from './ColourNameHeader';
+import ColourCardHeader from './ColourCardHeader';
 import StoreContext from '../StoreContext';
 import colourObjectToCSS from '../../utils/colourObjectToCSS';
 
@@ -34,7 +34,7 @@ const ColourCard = () => {
 
     return (
         <Container cssColourCode={colourObjectToCSS(selectedColour)}>
-            <ColourNameHeader />
+            <ColourCardHeader />
             <MainContent>
                 <ColourDisplay />
                 <ColourInput />

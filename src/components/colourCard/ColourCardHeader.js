@@ -49,7 +49,7 @@ const UnsaveLogo = styled(BrokenHeartSVG)`
     }
 `;
 
-const ColourNameHeader = ({ saved }) => {
+const ColourCardHeader = ({ saved }) => {
     const [colourName, setColourName] = useState('');
     const { setSelectedColour } = useContext(StoreContext);
 
@@ -75,4 +75,4 @@ const ColourNameHeader = ({ saved }) => {
     );
 };
 
-export default ColourNameHeader;
+export default ColourCardHeader;

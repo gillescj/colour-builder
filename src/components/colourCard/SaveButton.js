@@ -1,7 +1,10 @@
-import React from 'react';
+import _ from 'lodash';
+
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as HeartSVG } from '../../assets/svgs/8-bit-heart.svg';
 import { ReactComponent as BrokenHeartSVG } from '../../assets/svgs/8-bit-heart-broken.svg';
+import StoreContext from '../StoreContext';
 
 const Container = styled.div`
     justify-self: end;
@@ -36,10 +39,33 @@ const UnsaveLogo = styled(BrokenHeartSVG)`
     }
 `;
 
-const SaveButton = ({ saved }) => {
-    const renderSaveLogo = saved ? <UnsaveLogo /> : <SaveLogo />;
+const SaveButton = () => {
+    const {
+        selectedColour,
+        selectedColourSaved,
+        setSelectedColourSaved,
+        setSavedColoursList,
+    } = useContext(StoreContext);
 
-    return <Container>{renderSaveLogo}</Container>;
+    const renderSaveLogo = selectedColourSaved ? <UnsaveLogo /> : <SaveLogo />;
+
+    const handleSaveButtonClick = () => {
+        setSavedColoursList((previousSavedColoursList) => {
+            return [
+                ...previousSavedColoursList,
+                {
+                    ...selectedColour,
+                    id: _.uniqueId(),
+                },
+            ];
+        });
+
+        setSelectedColourSaved(true);
+    };
+
+    return (
+        <Container onClick={() => handleSaveButtonClick()}>{renderSaveLogo}</Container>
+    );
 };
 
 export default SaveButton;

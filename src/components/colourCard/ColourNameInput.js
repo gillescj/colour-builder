@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import StoreContext from '../StoreContext';
 
@@ -11,7 +11,11 @@ const Container = styled.input`
 
 const ColourNameInput = () => {
     const [colourName, setColourName] = useState('');
-    const { setSelectedColour } = useContext(StoreContext);
+    const { selectedColour, setSelectedColour } = useContext(StoreContext);
+
+    useEffect(() => {
+        setColourName(selectedColour.name);
+    }, [selectedColour.name]);
 
     const handleColourNameInputChange = (event) => {
         const value = event.target.value;

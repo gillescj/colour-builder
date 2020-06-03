@@ -1,9 +1,10 @@
+import _ from 'lodash';
+
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import StoreContext from '../StoreContext';
 import SavedColourItem from './SavedColourItem';
-import colourObjectToCSS from '../../utils/colourObjectToCSS';
 
 const Container = styled.div`
     display: flex;
@@ -15,30 +16,31 @@ const Container = styled.div`
 `;
 
 const SavedColours = () => {
-    const { savedColoursList } = useContext(StoreContext);
+    const { selectedColour, savedColoursList } = useContext(StoreContext);
 
     const renderedSavedColourItems = savedColoursList.map((colour) => {
-        const colourCodeCSS = colourObjectToCSS(colour);
+        let selected = false;
+        const savedColourObject = _.pick(colour, [
+            'hue',
+            'saturation',
+            'lightness',
+            'name',
+        ]);
+
+        if (_.isEqual(savedColourObject, selectedColour)) {
+            selected = true;
+        }
+
         return (
             <SavedColourItem
                 key={colour.id}
-                name={colour.name}
-                colourCodeCSS={colourCodeCSS}
+                savedColourObject={savedColourObject}
+                selected={selected}
             />
         );
     });
 
-    return (
-        <Container>
-            {renderedSavedColourItems}
-            <SavedColourItem
-                key={'100'}
-                name="Ridiculous Royal Blue"
-                colourCodeCSS="hsl(233, 83%, 42%)"
-                selected
-            />
-        </Container>
-    );
+    return <Container>{renderedSavedColourItems}</Container>;
 };
 
 export default SavedColours;

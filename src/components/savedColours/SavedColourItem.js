@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+
+import StoreContext from '../StoreContext';
+import colourObjectToCSS from '../../utils/colourObjectToCSS';
 
 const Container = styled.button.attrs((props) => ({
     style: {
@@ -18,10 +21,22 @@ const Container = styled.button.attrs((props) => ({
     }
 `;
 
-const SavedColourItem = ({ name, selected, colourCodeCSS }) => {
+const SavedColourItem = ({ selected, savedColourObject }) => {
+    const { setSelectedColour } = useContext(StoreContext);
+
+    const colourCodeCSS = colourObjectToCSS(savedColourObject);
+
+    const handleSavedColourItemClick = () => {
+        setSelectedColour({ ...savedColourObject });
+    };
+
     return (
-        <Container selected={selected} colourCodeCSS={colourCodeCSS}>
-            {name}
+        <Container
+            onClick={() => handleSavedColourItemClick()}
+            selected={selected}
+            colourCodeCSS={colourCodeCSS}
+        >
+            {savedColourObject.name}
         </Container>
     );
 };

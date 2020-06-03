@@ -36,7 +36,7 @@ const SavedColourItem = ({ selected, savedColourObject }) => {
             selected={selected}
             colourCodeCSS={colourCodeCSS}
         >
-            {savedColourObject.name}
+            {savedColourObject.name !== '' ? savedColourObject.name : colourCodeCSS}
         </Container>
     );
 };

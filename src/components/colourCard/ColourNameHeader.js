@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as HeartSVG } from '../../assets/svgs/8-bit-heart.svg';
 import { ReactComponent as BrokenHeartSVG } from '../../assets/svgs/8-bit-heart-broken.svg';
+import StoreContext from '../StoreContext';
 
 const Container = styled.header`
     display: grid;
@@ -50,9 +51,14 @@ const UnsaveLogo = styled(BrokenHeartSVG)`
 
 const ColourNameHeader = ({ saved }) => {
     const [colourName, setColourName] = useState('');
+    const { setSelectedColour } = useContext(StoreContext);
 
     const handleColourNameInputChange = (event) => {
-        setColourName(event.target.value);
+        const value = event.target.value;
+        setColourName(value);
+        setSelectedColour((previousSelectedColour) => {
+            return { ...previousSelectedColour, name: value };
+        });
     };
     const renderSaveLogo = saved ? <UnsaveLogo /> : <SaveLogo />;
 

@@ -20,7 +20,7 @@ const ColourDisplayList = ({ selectedColour, colourCodeAttribute, divisionArray 
                     [colourCodeAttribute]: attributeValue,
                 })}
                 size="2rem"
-                selectedColour={{
+                itemColour={{
                     ...selectedColour,
                     [colourCodeAttribute]: attributeValue,
                 }}

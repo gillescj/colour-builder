@@ -20,21 +20,21 @@ const Container = styled.div.attrs((props) => ({
 
 const ColourDisplayItem = ({
     size,
-    selectedColour = { hue: 280, saturation: 50, lightness: 50 },
+    itemColour = { hue: 280, saturation: 50, lightness: 50 },
     primary = false,
 }) => {
     const { setSelectedColour } = useContext(StoreContext);
-    const cssColourCode = colourObjectToCSS(selectedColour);
+    const cssColourCode = colourObjectToCSS(itemColour);
 
     const handleColourDisplayItemClick = () => {
         if (primary) return;
-        setSelectedColour(selectedColour);
+        setSelectedColour(itemColour);
     };
 
     return (
         <Container
             size={size}
-            selectedColour={selectedColour}
+            itemColour={itemColour}
             cssColourCode={cssColourCode}
             onClick={() => handleColourDisplayItemClick()}
         />

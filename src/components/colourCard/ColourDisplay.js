@@ -89,11 +89,7 @@ const ColourDisplay = () => {
 
     return (
         <Container className="colour-display">
-            <ColourDisplayItem
-                size="4rem"
-                selectedColour={selectedColour}
-                primary={true}
-            />
+            <ColourDisplayItem size="4rem" itemColour={selectedColour} primary={true} />
             <div className="colour-secondary-content">
                 <ColourDisplayCode selectedColour={selectedColour} />
                 <ColourListHeader>

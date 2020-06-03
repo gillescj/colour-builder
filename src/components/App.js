@@ -9,8 +9,9 @@ const App = () => {
         saturation: 50,
         lightness: 50,
         name: '',
-        saved: false,
     });
+
+    const [selectedColourSaved, setSelectedColourSaved] = useState(false);
 
     const [savedColoursList, setSavedColoursList] = useState([
         {
@@ -70,8 +71,17 @@ const App = () => {
             setSelectedColour,
             savedColoursList,
             setSavedColoursList,
+            selectedColourSaved,
+            setSelectedColourSaved,
         }),
-        [selectedColour, setSelectedColour, savedColoursList, setSavedColoursList]
+        [
+            selectedColour,
+            setSelectedColour,
+            savedColoursList,
+            setSavedColoursList,
+            selectedColourSaved,
+            setSelectedColourSaved,
+        ]
     );
 
     return (

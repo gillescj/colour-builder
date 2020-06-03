@@ -8,6 +8,8 @@ const App = () => {
         hue: 240,
         saturation: 50,
         lightness: 50,
+        name: '',
+        saved: false,
     });
 
     const [savedColoursList, setSavedColoursList] = useState([

@@ -9,11 +9,11 @@ const Container = styled.header`
     grid-gap: 1rem;
 `;
 
-const ColourCardHeader = ({ saved }) => {
+const ColourCardHeader = () => {
     return (
         <Container>
             <ColourNameInput />
-            <SaveButton saved={saved} />
+            <SaveButton />
         </Container>
     );
 };

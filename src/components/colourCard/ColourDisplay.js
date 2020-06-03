@@ -57,6 +57,12 @@ const ColourDisplay = () => {
     const { selectedColour } = useContext(StoreContext);
     const [secondaryContent, setSecondaryContent] = useState('hue');
 
+    const itemColour = {
+        hue: selectedColour.hue,
+        saturation: selectedColour.saturation,
+        lightness: selectedColour.lightness,
+    };
+
     const renderColourDisplayList = (attribute) => {
         if (attribute === 'hue') {
             return (
@@ -89,7 +95,7 @@ const ColourDisplay = () => {
 
     return (
         <Container className="colour-display">
-            <ColourDisplayItem size="4rem" itemColour={selectedColour} primary={true} />
+            <ColourDisplayItem size="4rem" itemColour={itemColour} primary={true} />
             <div className="colour-secondary-content">
                 <ColourDisplayCode selectedColour={selectedColour} />
                 <ColourListHeader>

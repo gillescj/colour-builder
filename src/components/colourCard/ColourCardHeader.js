@@ -1,19 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as HeartSVG } from '../../assets/svgs/8-bit-heart.svg';
 import { ReactComponent as BrokenHeartSVG } from '../../assets/svgs/8-bit-heart-broken.svg';
-import StoreContext from '../StoreContext';
+import ColourNameInput from './ColourNameInput';
 
 const Container = styled.header`
     display: grid;
     grid-template-columns: minmax(1rem, 22rem) auto;
     grid-gap: 1rem;
-    input {
-        background: hsl(10, 10%, 90%);
-        border: solid 2px hsl(10, 10%, 70%);
-        font-size: 1.5rem;
-        padding: 0.5rem;
-    }
 `;
 
 const SaveButton = styled.div`
@@ -50,26 +44,11 @@ const UnsaveLogo = styled(BrokenHeartSVG)`
 `;
 
 const ColourCardHeader = ({ saved }) => {
-    const [colourName, setColourName] = useState('');
-    const { setSelectedColour } = useContext(StoreContext);
-
-    const handleColourNameInputChange = (event) => {
-        const value = event.target.value;
-        setColourName(value);
-        setSelectedColour((previousSelectedColour) => {
-            return { ...previousSelectedColour, name: value };
-        });
-    };
     const renderSaveLogo = saved ? <UnsaveLogo /> : <SaveLogo />;
 
     return (
         <Container>
-            <input
-                value={colourName}
-                type="text"
-                placeholder="Enter Colour Name"
-                onChange={(event) => handleColourNameInputChange(event)}
-            />
+            <ColourNameInput />
             <SaveButton>{renderSaveLogo}</SaveButton>
         </Container>
     );

@@ -7,7 +7,7 @@ import StoreContext from '../StoreContext';
 import SavedColourItem from './SavedColourItem';
 
 const Container = styled.div`
-    display: flex;
+    display: ${(props) => (props.displaySavedColours ? `flex` : `none`)};
     flex-wrap: wrap;
     padding: 1rem;
 
@@ -19,6 +19,8 @@ const SavedColours = () => {
     const { selectedColour, setSelectedColourSaved, savedColoursList } = useContext(
         StoreContext
     );
+
+    const displaySavedColours = !(savedColoursList.length === 0);
 
     let selectionIsSaved = false;
 
@@ -47,7 +49,11 @@ const SavedColours = () => {
 
     setSelectedColourSaved(selectionIsSaved);
 
-    return <Container>{renderedSavedColourItems}</Container>;
+    return (
+        <Container displaySavedColours={displaySavedColours}>
+            {renderedSavedColourItems}
+        </Container>
+    );
 };
 
 export default SavedColours;

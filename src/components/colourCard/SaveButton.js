@@ -40,12 +40,9 @@ const UnsaveLogo = styled(BrokenHeartSVG)`
 `;
 
 const SaveButton = () => {
-    const {
-        selectedColour,
-        selectedColourSaved,
-        setSelectedColourSaved,
-        setSavedColoursList,
-    } = useContext(StoreContext);
+    const { selectedColour, selectedColourSaved, setSavedColoursList } = useContext(
+        StoreContext
+    );
 
     const renderSaveLogo = selectedColourSaved ? <UnsaveLogo /> : <SaveLogo />;
 
@@ -59,8 +56,6 @@ const SaveButton = () => {
                 },
             ];
         });
-
-        setSelectedColourSaved(true);
     };
 
     return (

@@ -47,15 +47,23 @@ const SaveButton = () => {
     const renderSaveLogo = selectedColourSaved ? <UnsaveLogo /> : <SaveLogo />;
 
     const handleSaveButtonClick = () => {
-        setSavedColoursList((previousSavedColoursList) => {
-            return [
-                ...previousSavedColoursList,
-                {
-                    ...selectedColour,
-                    id: _.uniqueId(),
-                },
-            ];
-        });
+        if (selectedColourSaved) {
+            setSavedColoursList((previousSavedColoursList) => {
+                return [...previousSavedColoursList].filter(
+                    (savedColourObject) => savedColourObject.name !== selectedColour.name
+                );
+            });
+        } else {
+            setSavedColoursList((previousSavedColoursList) => {
+                return [
+                    ...previousSavedColoursList,
+                    {
+                        ...selectedColour,
+                        id: _.uniqueId(),
+                    },
+                ];
+            });
+        }
     };
 
     return (

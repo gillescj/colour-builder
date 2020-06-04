@@ -16,7 +16,11 @@ const Container = styled.div`
 `;
 
 const SavedColours = () => {
-    const { selectedColour, savedColoursList } = useContext(StoreContext);
+    const { selectedColour, setSelectedColourSaved, savedColoursList } = useContext(
+        StoreContext
+    );
+
+    let selectionIsSaved = false;
 
     const renderedSavedColourItems = savedColoursList.map((colour) => {
         let selected = false;
@@ -29,6 +33,7 @@ const SavedColours = () => {
 
         if (_.isEqual(savedColourObject, selectedColour)) {
             selected = true;
+            selectionIsSaved = true;
         }
 
         return (
@@ -39,6 +44,8 @@ const SavedColours = () => {
             />
         );
     });
+
+    setSelectedColourSaved(selectionIsSaved);
 
     return <Container>{renderedSavedColourItems}</Container>;
 };

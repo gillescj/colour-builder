@@ -5,12 +5,12 @@ import styled from 'styled-components';
 
 import StoreContext from '../StoreContext';
 import SavedColourItem from './SavedColourItem';
+import AddSavedColourButton from './AddSavedColourButton';
 
 const Container = styled.div`
-    display: ${(props) => (props.displaySavedColours ? `flex` : `none`)};
+    display: flex;
     flex-wrap: wrap;
     padding: 1rem;
-
     background: hsl(240, 10%, 80%);
     border: 3px solid hsl(60, 6%, 19%);
 `;
@@ -54,6 +54,7 @@ const SavedColours = () => {
 
     return (
         <Container displaySavedColours={displaySavedColours}>
+            <AddSavedColourButton />
             {renderedSavedColourItems}
         </Container>
     );

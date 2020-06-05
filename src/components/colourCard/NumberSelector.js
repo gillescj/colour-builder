@@ -10,11 +10,13 @@ const Container = styled.div`
 const Top = styled.div`
     display: grid;
     grid-template-columns: minmax(2rem, auto) 4rem minmax(2rem, auto);
+    height: 2rem;
 `;
 
 const Bottom = styled.div`
     display: grid;
     grid-template-columns: auto auto;
+    height: 2rem;
 `;
 
 const AlterNumberButton = styled.button`

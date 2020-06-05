@@ -5,11 +5,14 @@ import ColourAdjuster from './ColourAdjuster';
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(5rem, 10rem));
+    grid-template-columns: repeat(auto-fill, minmax(5rem, 12rem));
     grid-gap: 0.5rem;
     justify-content: start;
     @media (max-width: 680px) {
         justify-content: center;
+    }
+    @media (max-width: 480px) {
+        grid-template-columns: repeat(auto-fill, minmax(5rem, 15rem));
     }
 `;
 

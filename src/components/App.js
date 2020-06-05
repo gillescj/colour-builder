@@ -66,6 +66,8 @@ const App = () => {
         },
     ]);
 
+    const [focusColourNameInput, setFocusColourNameInput] = useState(false);
+
     const store = useMemo(
         () => ({
             selectedColour,
@@ -74,6 +76,8 @@ const App = () => {
             setSavedColoursList,
             selectedColourSaved,
             setSelectedColourSaved,
+            focusColourNameInput,
+            setFocusColourNameInput,
         }),
         [
             selectedColour,
@@ -82,6 +86,8 @@ const App = () => {
             setSavedColoursList,
             selectedColourSaved,
             setSelectedColourSaved,
+            focusColourNameInput,
+            setFocusColourNameInput,
         ]
     );
 

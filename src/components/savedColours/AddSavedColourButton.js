@@ -30,7 +30,7 @@ const AddLogo = styled(AddSVG)`
 `;
 
 const AddSavedColourButton = () => {
-    const { setSelectedColour } = useContext(StoreContext);
+    const { setSelectedColour, setFocusColourNameInput } = useContext(StoreContext);
 
     const handleAddSavedColourButtonClick = () => {
         setSelectedColour({
@@ -39,6 +39,7 @@ const AddSavedColourButton = () => {
             lightness: 50,
             name: '',
         });
+        setFocusColourNameInput(true);
     };
 
     return (

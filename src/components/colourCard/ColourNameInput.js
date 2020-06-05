@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import StoreContext from '../StoreContext';
 
@@ -15,11 +15,25 @@ const Container = styled.input`
 
 const ColourNameInput = () => {
     const [colourName, setColourName] = useState('');
-    const { selectedColour, setSelectedColour } = useContext(StoreContext);
+    const {
+        selectedColour,
+        setSelectedColour,
+        focusColourNameInput,
+        setFocusColourNameInput,
+        setSavedColoursList,
+    } = useContext(StoreContext);
+    const colourNameInputRef = useRef();
 
     useEffect(() => {
         setColourName(selectedColour.name);
     }, [selectedColour.name]);
+
+    useEffect(() => {
+        colourNameInputRef.current.focus();
+        return () => {
+            setFocusColourNameInput(false);
+        };
+    }, [focusColourNameInput]);
 
     const handleColourNameInputChange = (event) => {
         const value = event.target.value;
@@ -28,11 +42,13 @@ const ColourNameInput = () => {
             return { ...previousSelectedColour, name: value };
         });
     };
+
     return (
         <Container
             value={colourName}
             type="text"
             placeholder="Enter Colour Name"
+            ref={colourNameInputRef}
             onChange={(event) => handleColourNameInputChange(event)}
         ></Container>
     );

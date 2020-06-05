@@ -7,7 +7,7 @@ import ColourDisplayItem from './ColourDisplayItem';
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(2rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(2.3rem, 1fr));
     grid-gap: 0.2rem;
 `;
 
@@ -19,7 +19,7 @@ const ColourDisplayList = ({ selectedColour, colourCodeAttribute, divisionArray 
                     ...selectedColour,
                     [colourCodeAttribute]: attributeValue,
                 })}
-                size="2rem"
+                size="2.3rem"
                 itemColour={{
                     ...selectedColour,
                     [colourCodeAttribute]: attributeValue,

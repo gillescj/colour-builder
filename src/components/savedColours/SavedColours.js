@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
 import StoreContext from '../StoreContext';
@@ -47,7 +47,10 @@ const SavedColours = () => {
         );
     });
 
-    setSelectedColourSaved(selectionIsSaved);
+    useEffect(() => {
+        setSelectedColourSaved(selectionIsSaved);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectionIsSaved]);
 
     return (
         <Container displaySavedColours={displaySavedColours}>

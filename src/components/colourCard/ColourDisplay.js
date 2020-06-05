@@ -19,7 +19,7 @@ const Container = styled.div`
         align-content: space-between;
         grid-gap: 0.5rem;
     }
-    @media (max-width: 520px) {
+    @media (max-width: 480px) {
         grid-template-columns: minmax(2rem, 20rem);
         justify-content: center;
     }

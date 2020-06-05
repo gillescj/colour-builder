@@ -8,6 +8,9 @@ const Container = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(5rem, 10rem));
     grid-gap: 0.5rem;
     justify-content: start;
+    @media (max-width: 680px) {
+        justify-content: center;
+    }
 `;
 
 const ColourInput = () => {

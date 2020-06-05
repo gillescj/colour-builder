@@ -7,6 +7,10 @@ const Container = styled.input`
     border: solid 2px hsl(10, 10%, 70%);
     font-size: 1.5rem;
     padding: 0.5rem;
+    height: 3rem;
+    @media (max-width: 480px) {
+        font-size: 1.3rem;
+    }
 `;
 
 const ColourNameInput = () => {

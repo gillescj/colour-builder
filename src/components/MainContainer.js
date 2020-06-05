@@ -9,8 +9,8 @@ const Container = styled.div`
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: minmax(auto, 45rem);
-    @media (max-width: 520px) {
-        padding: 0.5rem;
+    @media (max-width: 480px) {
+        padding: 0.3rem;
     }
 `;
 

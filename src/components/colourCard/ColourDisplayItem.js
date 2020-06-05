@@ -11,6 +11,7 @@ const Container = styled.div.attrs((props) => ({
 }))`
     width: ${(props) => props.size || '2rem'};
     height: ${(props) => props.size || '2rem'};
+    justify-self: center;
     cursor: pointer;
     border: 1px solid hsl(60, 6%, 19%);
     &:hover {

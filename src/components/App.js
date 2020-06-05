@@ -5,7 +5,7 @@ import _ from 'lodash';
 import useLocalStorage from '../utils/useLocalStorage';
 
 const App = () => {
-    const [selectedColour, setSelectedColour] = useLocalStorage('selectedColour', {
+    const [selectedColour, setSelectedColour] = useState({
         hue: 240,
         saturation: 50,
         lightness: 50,

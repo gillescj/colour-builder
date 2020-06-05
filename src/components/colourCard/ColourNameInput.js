@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import StoreContext from '../StoreContext';
@@ -43,6 +45,20 @@ const ColourNameInput = () => {
         });
     };
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            setSavedColoursList((previousSavedColoursList) => {
+                return [
+                    ...previousSavedColoursList,
+                    {
+                        ...selectedColour,
+                        id: _.uniqueId(),
+                    },
+                ];
+            });
+        }
+    };
+
     return (
         <Container
             value={colourName}
@@ -50,6 +66,7 @@ const ColourNameInput = () => {
             placeholder="Enter Colour Name"
             ref={colourNameInputRef}
             onChange={(event) => handleColourNameInputChange(event)}
+            onKeyDown={(event) => handleKeyDown(event)}
         ></Container>
     );
 };

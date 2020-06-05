@@ -21,12 +21,15 @@ const Container = styled.div`
     }
     @media (max-width: 520px) {
         grid-template-columns: minmax(2rem, 20rem);
+        justify-content: center;
     }
 `;
 
 const ColourListHeader = styled.header`
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
     justify-content: space-between;
+    align-items: center;
     h3 {
         font-weight: normal;
         margin-right: 0.5rem;

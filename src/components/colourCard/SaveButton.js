@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { ReactComponent as HeartSVG } from '../../assets/svgs/8-bit-heart.svg';
 import { ReactComponent as BrokenHeartSVG } from '../../assets/svgs/8-bit-heart-broken.svg';
 import StoreContext from '../StoreContext';
+import colourObjectToCSS from '../../utils/colourObjectToCSS';
 
 const Container = styled.div`
     justify-self: end;
@@ -50,7 +51,10 @@ const SaveButton = () => {
         if (selectedColourSaved) {
             setSavedColoursList((previousSavedColoursList) => {
                 return [...previousSavedColoursList].filter(
-                    (savedColourObject) => savedColourObject.name !== selectedColour.name
+                    (savedColourObject) =>
+                        savedColourObject.name !== selectedColour.name ||
+                        colourObjectToCSS(savedColourObject) !==
+                            colourObjectToCSS(selectedColour)
                 );
             });
         } else {

@@ -9,18 +9,18 @@ const Container = styled.div`
 
 const Top = styled.div`
     display: grid;
-    grid-template-columns: minmax(2rem, auto) 4rem minmax(2rem, auto);
-    height: 2rem;
+    grid-template-columns: minmax(2rem, 7rem) minmax(2rem, 4rem) minmax(2rem, 7rem);
+    height: 2.5rem;
 `;
 
 const Bottom = styled.div`
     display: grid;
     grid-template-columns: auto auto;
-    height: 2rem;
+    height: 2.2rem;
 `;
 
 const AlterNumberButton = styled.button`
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: hsl(150, 3%, 13%);
     border: 2px solid black;
     background: hsl(180, 10%, 23%);
@@ -50,6 +50,7 @@ const NumberInput = styled.input`
     border-bottom: 2px solid black;
     border-left: none;
     border-right: none;
+    font-size: 0.9rem;
     text-align: center;
     font-weight: bold;
     -moz-appearance: textfield;

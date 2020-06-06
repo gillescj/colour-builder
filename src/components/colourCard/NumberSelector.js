@@ -23,7 +23,7 @@ const AlterNumberButton = styled.button`
     font-size: 1rem;
     color: hsl(150, 3%, 13%);
     border: 2px solid black;
-    background: hsl(0, 0%, 13%);
+    background: hsl(180, 10%, 23%);
     color: hsl(0, 0%, 100%);
     cursor: pointer;
     &:hover {

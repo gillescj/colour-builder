@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import StoreContext from '../StoreContext';
 
 const Container = styled.input`
-    background: hsl(10, 10%, 90%);
-    border: solid 2px hsl(10, 10%, 70%);
+    background: white;
+    border: solid 2px hsl(60, 6%, 19%);
     font-size: 1.5rem;
     padding: 0.5rem;
     height: 3rem;

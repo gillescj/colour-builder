@@ -4,7 +4,14 @@ import styled from 'styled-components';
 import StoreContext from '../StoreContext';
 import NumberSelector from './NumberSelector';
 
-const Container = styled.div``;
+const Container = styled.div`
+    display: grid;
+    grid-template-columns: 12rem;
+    justify-self: center;
+    @media (max-width: 680px) {
+        grid-template-columns: minmax(10rem, 17rem);
+    }
+`;
 
 const ColourAdjuster = ({ colourCodeAttribute, minValue, maxValue }) => {
     const { selectedColour, setSelectedColour } = useContext(StoreContext);

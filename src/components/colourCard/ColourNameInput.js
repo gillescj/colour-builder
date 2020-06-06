@@ -20,6 +20,7 @@ const ColourNameInput = () => {
     const {
         selectedColour,
         setSelectedColour,
+        selectedColourSaved,
         focusColourNameInput,
         setFocusColourNameInput,
         setSavedColoursList,
@@ -47,15 +48,17 @@ const ColourNameInput = () => {
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
-            setSavedColoursList((previousSavedColoursList) => {
-                return [
-                    ...previousSavedColoursList,
-                    {
-                        ...selectedColour,
-                        id: _.uniqueId(),
-                    },
-                ];
-            });
+            if (!selectedColourSaved) {
+                setSavedColoursList((previousSavedColoursList) => {
+                    return [
+                        ...previousSavedColoursList,
+                        {
+                            ...selectedColour,
+                            id: _.uniqueId(),
+                        },
+                    ];
+                });
+            }
         }
     };
 

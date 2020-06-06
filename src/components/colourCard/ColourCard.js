@@ -21,11 +21,13 @@ const Container = styled.div`
 
 const MainContent = styled.div`
     display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 1rem;
+    grid-template-columns: auto 12rem;
+    grid-gap: 1.5rem;
     align-items: flex-start;
+    justify-content: space-evenly;
     @media (max-width: 680px) {
-        grid-template-columns: auto;
+        grid-template-columns: 1fr;
+        justify-content: center;
     }
 `;
 

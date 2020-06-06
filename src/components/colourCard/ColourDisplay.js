@@ -12,7 +12,7 @@ import StoreContext from '../StoreContext';
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 5rem minmax(2rem, 20rem);
+    grid-template-columns: 5rem minmax(2rem, 25rem);
     grid-gap: 0.5rem;
     .colour-secondary-content {
         display: grid;

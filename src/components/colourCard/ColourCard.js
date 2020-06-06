@@ -15,7 +15,7 @@ const Container = styled.div`
     border: 3px solid hsl(60, 6%, 19%);
     box-shadow: -10px 10px 0 ${(props) => props.cssColourCode};
     @media (max-width: 480px) {
-        box-shadow: none;
+        box-shadow: 0 10px 0 ${(props) => props.cssColourCode};
     }
 `;
 

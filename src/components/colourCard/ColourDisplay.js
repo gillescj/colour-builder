@@ -80,7 +80,7 @@ const ColourDisplay = () => {
                 <ColourDisplayList
                     selectedColour={selectedColour}
                     colourCodeAttribute={attribute}
-                    divisionArray={_.range(0, 110, 10)}
+                    divisionArray={_.range(0, 110, 5)}
                 />
             );
         }

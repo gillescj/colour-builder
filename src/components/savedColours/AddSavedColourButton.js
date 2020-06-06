@@ -13,6 +13,7 @@ const Container = styled.button`
     cursor: pointer;
     margin: 0 10px 10px 0;
     box-shadow: -3px 3px 0 hsl(60, 6%, 19%);
+    background: white;
     &:hover {
         background: hsl(60, 6%, 19%);
         color: white;

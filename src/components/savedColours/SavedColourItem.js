@@ -12,7 +12,8 @@ const Container = styled.button.attrs((props) => ({
     },
 }))`
     border: 3px solid hsl(0, 0%, 13%);
-    padding: 0.25rem;
+    font-size: 1rem;
+    padding: 0.4rem;
     cursor: pointer;
     margin: 0 10px 10px 0;
     &:hover {

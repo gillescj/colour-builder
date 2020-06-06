@@ -9,12 +9,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border-radius: 0;
     font-family: IBMPlexSans, Arial, Helvetica, sans-serif;
     scroll-behavior: smooth;
 }
 
 body {
-    background: hsl(220, 15%, 92%);
+    background: white;
     display: grid;
     justify-content: center;
 }

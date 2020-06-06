@@ -10,8 +10,8 @@ import AddSavedColourButton from './AddSavedColourButton';
 const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
-    padding: 1rem;
-    background: hsl(240, 10%, 80%);
+    padding: 1rem calc(1rem - 10px) calc(1rem - 10px) 1rem;
+    background: hsl(240, 11%, 95%);
     border: 3px solid hsl(60, 6%, 19%);
 `;
 

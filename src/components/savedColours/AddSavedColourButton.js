@@ -8,11 +8,11 @@ const Container = styled.button`
     display: flex;
     align-items: center;
     border: 3px solid hsl(0, 0%, 13%);
-    padding: 0.25rem;
+    font-size: 1rem;
+    padding: 0.4rem;
     cursor: pointer;
     margin: 0 10px 10px 0;
     box-shadow: -3px 3px 0 hsl(60, 6%, 19%);
-    font-weight: 900;
     &:hover {
         background: hsl(60, 6%, 19%);
         color: white;

@@ -53,7 +53,7 @@ const SavedColours = () => {
     }, [selectionIsSaved]);
 
     return (
-        <Container displaySavedColours={displaySavedColours}>
+        <Container>
             <AddSavedColourButton />
             {renderedSavedColourItems}
         </Container>

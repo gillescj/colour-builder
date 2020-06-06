@@ -44,12 +44,18 @@ const AlterNumberButtonBottomLeft = styled(AlterNumberButton)`
     border-top: none;
 `;
 
-const NumberInput = styled.input`
+const NumberInputContainer = styled.div`
     color: hsl(0, 0%, 13%);
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     border-left: none;
     border-right: none;
+`;
+
+const NumberInput = styled.input`
+    width: 100%;
+    height: 100%;
+    border: none;
     font-size: 0.9rem;
     text-align: center;
     font-weight: bold;
@@ -93,13 +99,15 @@ const NumberSelector = ({
                 >
                     -
                 </AlterNumberButton>
-                <NumberInput
-                    type="number"
-                    max={maxValue}
-                    min={minValue}
-                    value={numberValue}
-                    onChange={(event) => handleNumberInputChange(event)}
-                />
+                <NumberInputContainer>
+                    <NumberInput
+                        type="number"
+                        max={maxValue}
+                        min={minValue}
+                        value={numberValue}
+                        onChange={(event) => handleNumberInputChange(event)}
+                    />
+                </NumberInputContainer>
                 <AlterNumberButton
                     className="increment"
                     onClick={() => handleAlterNumberButtonClick(1)}

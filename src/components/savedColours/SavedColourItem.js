@@ -6,7 +6,7 @@ import colourObjectToCSS from '../../utils/colourObjectToCSS';
 
 const Container = styled.button.attrs((props) => ({
     style: {
-        background: props.selected ? 'hsl(0, 0%, 13%)' : 'white',
+        background: props.selected ? 'hsl(0, 0%, 13%)' : '',
         color: props.selected ? 'white' : '',
         boxShadow: `-3px 3px 0 ${props.colourCodeCSS}`,
     },

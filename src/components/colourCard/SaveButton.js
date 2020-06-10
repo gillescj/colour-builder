@@ -63,7 +63,7 @@ const SaveButton = () => {
                     ...previousSavedColoursList,
                     {
                         ...selectedColour,
-                        id: _.uniqueId(),
+                        id: _.uniqueId(colourObjectToCSS(selectedColour)),
                     },
                 ];
             });

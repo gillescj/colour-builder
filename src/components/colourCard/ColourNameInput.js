@@ -36,7 +36,7 @@ const ColourNameInput = () => {
         return () => {
             setFocusColourNameInput(false);
         };
-    }, [focusColourNameInput]);
+    }, [focusColourNameInput, setFocusColourNameInput]);
 
     const handleColourNameInputChange = (event) => {
         const value = event.target.value;

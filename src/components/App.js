@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import MainContainer from './MainContainer';
 import StoreContext from './StoreContext';
-import _ from 'lodash';
 import useLocalStorage from '../utils/useLocalStorage';
 
 const App = () => {

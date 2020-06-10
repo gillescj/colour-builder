@@ -20,8 +20,6 @@ const SavedColours = () => {
         StoreContext
     );
 
-    const displaySavedColours = !(savedColoursList.length === 0);
-
     let selectionIsSaved = false;
 
     const renderedSavedColourItems = savedColoursList.map((colour) => {

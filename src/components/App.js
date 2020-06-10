@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import MainContainer from './MainContainer';
 import StoreContext from './StoreContext';
 import _ from 'lodash';
@@ -21,28 +21,16 @@ const App = () => {
 
     const [focusColourNameInput, setFocusColourNameInput] = useState(false);
 
-    const store = useMemo(
-        () => ({
-            selectedColour,
-            setSelectedColour,
-            savedColoursList,
-            setSavedColoursList,
-            selectedColourSaved,
-            setSelectedColourSaved,
-            focusColourNameInput,
-            setFocusColourNameInput,
-        }),
-        [
-            selectedColour,
-            setSelectedColour,
-            savedColoursList,
-            setSavedColoursList,
-            selectedColourSaved,
-            setSelectedColourSaved,
-            focusColourNameInput,
-            setFocusColourNameInput,
-        ]
-    );
+    const store = {
+        selectedColour,
+        setSelectedColour,
+        savedColoursList,
+        setSavedColoursList,
+        selectedColourSaved,
+        setSelectedColourSaved,
+        focusColourNameInput,
+        setFocusColourNameInput,
+    };
 
     return (
         <StoreContext.Provider value={store}>

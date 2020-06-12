@@ -64,6 +64,12 @@ const NumberInput = styled.input`
         -webkit-appearance: none;
         display: none;
     }
+    &:invalid {
+        border: 2px solid hsl(0, 62%, 50%);
+        &:focus {
+            outline: none;
+        }
+    }
 `;
 
 const NumberSelector = ({

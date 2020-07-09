@@ -4,9 +4,7 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import StoreContext from '../StoreContext';
 
-const Container = styled.div``;
-
-const Input = styled.input`
+const Container = styled.input`
     background: white;
     border: solid 2px hsl(60, 6%, 19%);
     font-size: 1.5rem;
@@ -65,17 +63,14 @@ const ColourNameInput = () => {
     };
 
     return (
-        <Container>
-            <Input
-                value={colourName}
-                type="text"
-                placeholder="Enter Colour Name"
-                ref={colourNameInputRef}
-                onChange={(event) => setColourName(event.target.value)}
-                onBlur={(event) => handleColourNameInputChange(event)}
-                onKeyDown={(event) => handleKeyDown(event)}
-            />
-        </Container>
+        <Container
+            value={colourName}
+            type="text"
+            placeholder="Enter Colour Name"
+            ref={colourNameInputRef}
+            onChange={(event) => handleColourNameInputChange(event)}
+            onKeyDown={(event) => handleKeyDown(event)}
+        ></Container>
     );
 };
 

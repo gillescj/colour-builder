@@ -68,7 +68,8 @@ const ColourNameInput = () => {
             type="text"
             placeholder="Enter Colour Name"
             ref={colourNameInputRef}
-            onChange={(event) => handleColourNameInputChange(event)}
+            onChange={(event) => setColourName(event.target.value)}
+            onBlur={(event) => handleColourNameInputChange(event)}
             onKeyDown={(event) => handleKeyDown(event)}
         ></Container>
     );

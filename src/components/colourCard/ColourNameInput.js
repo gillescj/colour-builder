@@ -42,7 +42,7 @@ const ColourNameInput = () => {
         const value = event.target.value;
         setColourName(value);
         setSelectedColour((previousSelectedColour) => {
-            return { ...previousSelectedColour, name: colourName };
+            return { ...previousSelectedColour, name: value };
         });
     };
 

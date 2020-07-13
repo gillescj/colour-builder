@@ -41,13 +41,13 @@ const ColourNameInput = () => {
     const handleColourNameInputChange = (event) => {
         const value = event.target.value;
         setColourName(value);
+        setSelectedColour((previousSelectedColour) => {
+            return { ...previousSelectedColour, name: colourName };
+        });
     };
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
-            setSelectedColour((previousSelectedColour) => {
-                return { ...previousSelectedColour, name: colourName };
-            });
             if (!selectedColourSaved) {
                 setSavedColoursList((previousSavedColoursList) => {
                     return [
@@ -62,12 +62,6 @@ const ColourNameInput = () => {
         }
     };
 
-    const handleBlur = () => {
-        setSelectedColour((previousSelectedColour) => {
-            return { ...previousSelectedColour, name: colourName };
-        });
-    };
-
     return (
         <Container
             value={colourName}
@@ -76,7 +70,6 @@ const ColourNameInput = () => {
             ref={colourNameInputRef}
             onChange={(event) => handleColourNameInputChange(event)}
             onKeyDown={(event) => handleKeyDown(event)}
-            onBlur={() => handleBlur()}
         ></Container>
     );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import StoreContext from './StoreContext';
 import useLocalStorage from '../utils/useLocalStorage';
 
@@ -19,16 +19,19 @@ const StoreProvider = (props) => {
 
     const [focusColourNameInput, setFocusColourNameInput] = useState(false);
 
-    const store = {
-        selectedColour,
-        setSelectedColour,
-        savedColoursList,
-        setSavedColoursList,
-        selectedColourSaved,
-        setSelectedColourSaved,
-        focusColourNameInput,
-        setFocusColourNameInput,
-    };
+    const store = useMemo(
+        () => ({
+            selectedColour,
+            setSelectedColour,
+            savedColoursList,
+            setSavedColoursList,
+            selectedColourSaved,
+            setSelectedColourSaved,
+            focusColourNameInput,
+            setFocusColourNameInput,
+        }),
+        [selectedColour, savedColoursList, selectedColourSaved, focusColourNameInput]
+    );
 
     return <StoreContext.Provider value={store}>{props.children}</StoreContext.Provider>;
 };

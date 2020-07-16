@@ -3,6 +3,7 @@ import _ from 'lodash';
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import StoreContext from '../StoreContext';
+import NameContext from '../NameContext';
 
 const Container = styled.input`
     background: white;
@@ -16,7 +17,7 @@ const Container = styled.input`
 `;
 
 const ColourNameInput = () => {
-    const [colourName, setColourName] = useState('');
+    // const [colourName, setColourName] = useState('');
     const {
         selectedColour,
         setSelectedColour,
@@ -25,11 +26,12 @@ const ColourNameInput = () => {
         setFocusColourNameInput,
         setSavedColoursList,
     } = useContext(StoreContext);
+    const { colourName, setColourName } = useContext(NameContext);
     const colourNameInputRef = useRef();
 
-    useEffect(() => {
-        setColourName(selectedColour.name);
-    }, [selectedColour.name]);
+    // useEffect(() => {
+    //     setColourName(selectedColour.name);
+    // }, [selectedColour.name]);
 
     useEffect(() => {
         colourNameInputRef.current.focus();
@@ -41,9 +43,9 @@ const ColourNameInput = () => {
     const handleColourNameInputChange = (event) => {
         const value = event.target.value;
         setColourName(value);
-        setSelectedColour((previousSelectedColour) => {
-            return { ...previousSelectedColour, name: value };
-        });
+        // setSelectedColour((previousSelectedColour) => {
+        //     return { ...previousSelectedColour, name: value };
+        // });
     };
 
     const handleKeyDown = (event) => {
@@ -54,6 +56,7 @@ const ColourNameInput = () => {
                         ...previousSavedColoursList,
                         {
                             ...selectedColour,
+                            name: colourName,
                             id: _.uniqueId(),
                         },
                     ];

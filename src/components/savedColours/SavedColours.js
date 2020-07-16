@@ -4,6 +4,7 @@ import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
 import StoreContext from '../StoreContext';
+import NameContext from '../NameContext';
 import SavedColourItem from './SavedColourItem';
 import AddSavedColourButton from './AddSavedColourButton';
 
@@ -19,6 +20,7 @@ const SavedColours = () => {
     const { selectedColour, setSelectedColourSaved, savedColoursList } = useContext(
         StoreContext
     );
+    const { colourName } = useContext(NameContext);
 
     let selectionIsSaved = false;
 
@@ -31,7 +33,7 @@ const SavedColours = () => {
             'name',
         ]);
 
-        if (_.isEqual(savedColourObject, selectedColour)) {
+        if (_.isEqual(savedColourObject, { ...selectedColour, name: colourName })) {
             selected = true;
             selectionIsSaved = true;
         }

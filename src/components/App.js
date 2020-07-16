@@ -1,13 +1,16 @@
 import React from 'react';
 import StoreProvider from './StoreProvider';
+import NameProvider from './NameProvider';
 import MainContainer from './MainContainer';
 
 const App = () => {
     return (
         <StoreProvider>
-            <div className="container">
-                <MainContainer />
-            </div>
+            <NameProvider>
+                <div className="container">
+                    <MainContainer />
+                </div>
+            </NameProvider>
         </StoreProvider>
     );
 };
